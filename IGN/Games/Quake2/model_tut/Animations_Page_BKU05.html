@@ -1,0 +1,421 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.8 [en] (Win98; U) [Netscape]">
+   <meta name="Author" content="Jason Creamy Goodness Tenn">
+   <title>Creamy's Quake2 modeling tutorial</title>
+</head>
+<body text="#FF8080" bgcolor="#000000" link="#33FF33" vlink="#660000" alink="#FFFF00">
+
+<center><IFRAME SRC="http://ads.gamespy.com/hserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=468 HEIGHT=60><script SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"></script>
+<noscript><a href="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"><img SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NOSAVE height=40 width=40></a></noscript></IFRAME>
+<p>
+<hr WIDTH="100%">
+<p><font color="#00FF80"><font size=+2>My Quake2 Modeling Tutorial:</font></font>
+<br><u><font color="#00FF80"><font size=+2>Step 2: Animations</font></font></u></center>
+
+<p>> After your model's mesh is completed, and the bones are correctly
+applied, the next step is to animate the model for use in the game. A fully
+animated Quake2 plugin player model has 20 different animations. Each of
+the model's animations should be created in it's own Action, and have the
+correct number of frames. Once all 20 animations are completed, you can
+then compile them in a single choreography.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>FRAMES LIST</b></center>
+
+<p>> A Quake2 plugin player model consists of 20 individual animations
+which have a total of exactly 198 frames. Each animation has its own number
+of frames, ranging from 4 to 40. Some of the animations loop, so that they
+look like a continuous and unbroken animation when played repeatedly. When
+animating a PPM, it is mandatory that each animation consists of the correct
+number of frames, and loops where appropriate. In order to help you along,
+you can follow the <font color="#000000"><a href="http://www.planetquake.com/polycount/resources/quake2/q2frameslist.shtml" target="_top">Frames
+List</a></font> on Polycount. If you for some reason you can't access the
+list, or have trouble following it, you can use my version of the list
+below...
+<br>&nbsp;
+<br>&nbsp;
+<center><table BORDER WIDTH="100%" >
+<caption><font size=+1>Jason "Creamy Goodness" Tenn's Quake2 Frames List</font></caption>
+
+<tr BGCOLOR="#33FF33">
+<td><font color="#000000">Animation</font></td>
+
+<td><font color="#000000"># of Frames</font></td>
+
+<td><font color="#000000">Description</font></td>
+
+<td><font color="#000000">Type</font></td>
+</tr>
+
+<tr BGCOLOR="#000000">
+<td><font color="#33FF33">Stand</font></td>
+
+<td><font color="#33FF33">40</font></td>
+
+<td><font color="#33FF33">The Stand animation is the one that is most likely
+going to be seen more than any other animation, and therefore must be of
+especially high quality. At 40 frames, it is by far the longest of the
+animations, taking up over a fifth of the PPM's total frames. A character
+going through the Stand is most likely to be looking around. However, the
+animation can also be in the form of a fighting stance, or whatever else
+you can think of. You can be very creative with Stand by adding a few extras,
+such as having your character cock the gun, crack his/her knuckles, or
+scratch his/her head, but don't go for anything too flashy. Since Stand
+is very commonly seen, it can get old quickly, and I recommend that you
+save the true pizzaz for the less common animations. Stand is one of the
+four looping animations, which means its final frames should show the character
+smoothly returning to his/her state in the first frame.</font></td>
+
+<td><font color="#33FF33">Loop</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Run</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td><font color="#33FF33">Another looping animation, the Run plays while
+the character moves about the arena of death. The Run is a six frame animation
+that typically involves the first three frames dealing with one leg hitting
+the ground, while the other three frames are a mirror image of the first
+three. While making this animation, it's important to avoid "skating",
+or when your model's feet slide unnaturally along the floor when they're
+supposed to be planted in one place. After I finish the run animation for
+my models, I go to both the left or right view and the front or back view
+of my model, and zoom in on the planted foot in both views. I then run
+the animation one frame at a time, and adjust the foot so that it's on
+the ground in each frame. I then of course repeat the process with the
+other foot.</font></td>
+
+<td><font color="#33FF33">Loop</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Attack</font></td>
+
+<td><font color="#33FF33">8</font></td>
+
+<td><font color="#33FF33">This is the animation you'll see when the character
+fires his/her weapon. The weapon is discharged during the first frame of
+the Attack animation. I would recommend having the PPM in full recoil in
+the first frame, and then spend the rest of Attack recovering (returning
+to the first frame of Stand). Or, you could also put the recoil in the
+first frame, then have your character cock the gun quickly before returning
+to the first frame of Stand.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Pain1</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td><font color="#33FF33">One of three animations played randomly when
+the character suffers damage.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Pain2</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td><font color="#33FF33">One of three animations played randomly when
+the character suffers damage.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Pain3</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td><font color="#33FF33">One of three animations played randomly when
+the character suffers damage. Also, the Change Weapon animation is Pain3
+played backwards.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Jump</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td><font color="#33FF33">The Jump animation is shown whenever the PPM
+becomes airborne. During a standard jump, the first frame shows the model
+reaching the peak of his/her jump, the second frame holds as long as the
+PPM stays in the air, the third frame shows the model just before the landing,
+while the last three frames show the landing. The second frame of Jump
+is your standard airborne frame and will hold until the PPM lands. If the
+PPM falls far enough to take damage, a random Pain animation will play
+instead of the last four frames of Jump.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Flipoff</font></td>
+
+<td><font color="#33FF33">12</font></td>
+
+<td><font color="#33FF33">One of five gestures the character can make.
+It's usually used to tell the opposing players to fuck off.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Salute</font></td>
+
+<td><font color="#33FF33">11</font></td>
+
+<td><font color="#33FF33">One of five gestures the character can make.
+Players can use this gesture as a sign of respect for their teamates.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Taunt</font></td>
+
+<td><font color="#33FF33">17</font></td>
+
+<td><font color="#33FF33">One of five gestures the character can make.
+It's usually used to tell the opposing players to fuck off.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Wave</font></td>
+
+<td><font color="#33FF33">11</font></td>
+
+<td><font color="#33FF33">One of five gestures the character can make.
+The Grenade Toss animation is Wave played backwards. You can opt to dedicate
+this animation to the Grenade Toss, but it can make Wave look awkward when
+actally used as a wave.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Point</font></td>
+
+<td><font color="#33FF33">12</font></td>
+
+<td><font color="#33FF33">One of five gestures the character can make.
+This is when the character points straight ahead.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Stand</font></td>
+
+<td><font color="#33FF33">19</font></td>
+
+<td><font color="#33FF33">This shows the PPM crouching, kneeling, or otherwise
+reducing his/her overall height. I recommend keeping your PPM at half normal
+height while using the Crouch animations.&nbsp;</font></td>
+
+<td><font color="#33FF33">Loop</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Crouch Walk</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td><font color="#33FF33">The PPM walks while crouching. He/she becomes
+a smaller target, but also moves a lot more slowly than he/she would with
+a standard Run. The Crouch Walk can also take the form of a crawl.</font></td>
+
+<td><font color="#33FF33">Loop</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Attack</font></td>
+
+<td><font color="#33FF33">9</font></td>
+
+<td><font color="#33FF33">The PPM fires his/her weapon while crouching.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Crouch Pain</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td><font color="#33FF33">The PPM takes damage while crouching.</font></td>
+
+<td><font color="#33FF33">Standard</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Death</font></td>
+
+<td><font color="#33FF33">5</font></td>
+
+<td><font color="#33FF33">The character dies while crouching. The character
+starts in his/her crouching position, and ends up lying on the ground.
+There are only five frames in this animation, so keep it as simple as you
+can.</font></td>
+
+<td><font color="#33FF33">Death</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Death1</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td><font color="#33FF33">The character starts in his/her standing position,
+and ends up lying on the ground.&nbsp;</font></td>
+
+<td><font color="#33FF33">Death</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Death2</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td><font color="#33FF33">The character starts in his/her standing position,
+and ends up lying on the ground.&nbsp;</font></td>
+
+<td><font color="#33FF33">Death</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Death3</font></td>
+
+<td><font color="#33FF33">8</font></td>
+
+<td><font color="#33FF33">The character starts in his/her standing position,
+and ends up lying on the ground. This animation consists of slightly more
+frames than the other Deaths, and allows a little more flexability.</font></td>
+
+<td><font color="#33FF33">Death</font></td>
+</tr>
+</table></center>
+
+<center>
+<p>ANIMATION TYPES
+<br>Standard - Begins and ends with the first frame of Stand or Crouch
+Stand.
+<br>Loop - Runs smoothly in a continuous cycle, so that the last frames
+lead up to the first frame.
+<br>Death - Begins with the first frame of Stand or Crouch Stand, but ends
+with the model's final, dead position.</center>
+
+<p>
+<hr WIDTH="100%">
+<center>
+<p><b>LOOPING</b></center>
+
+<p>> Aa any proficient animatior knows, looping is when an animation runs
+over and over again, A successful looping animation has its last frames
+blend smoothly into its first frame, so you can't tell exactly where the
+animation begins and ends. The Stand, Run, Crouch Stand, and Crouch Walk
+animations all loop. In order to create an animation that loops smoothly,
+simply follow these steps...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_1.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_1.gif" NOSAVE BORDER=2 height=100 width=100></a>Create
+your animation normally, until you get to the final keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_2.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_2.gif" NOSAVE BORDER=2 height=100 width=100></a>Go
+to the first keyframe, and while in Key Model Mode&nbsp;<img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/KMM.gif" NOSAVE BORDER=0 height=24 width=24>,
+copy the frame to the clipboard.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_3.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_3.gif" NOSAVE BORDER=2 height=100 width=100></a>In
+the frame number text box, enter a number that is one frame higher than
+the intended number of frames in your animation.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_4.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_4.gif" NOSAVE BORDER=2 height=100 width=100></a>Making
+sure you're still in Key Model Mode, paste the first frame of your model
+into your new keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_5.gif" NOSAVE BORDER=2 height=100 width=100></a>While
+still in Key Model Mode, make the second-to-last frame in your animation
+a keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_6.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut2_6.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+the last frame in the animation (the frame you copied from the first frame).
+Your animation will now loop smoothly.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>DUAL PURPOSE ANIMATIONS</b></center>
+
+<p>> The Grenade Toss and Change Weapon animations are not officially included
+in the frames list. Instead, the grenade toss is Wave played backwards,
+while Change Weapon is Pain3 played backwards. If you want to create your
+PPM to specifically take advantage of the Genade Toss animation, simply
+create an Action for GT, animate it as usual (making sure GT has exactly
+11 frames, of course), then reverse the keyframes, so that the animation
+runs backwards. Here's my method of reversing the frames in an animation...
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>After
+completing the Grenade Toss animation, create a new Action, and position
+its window next to one of the windows of your Grenade Toss animation.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>While
+in Key Model Mode&nbsp;<img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/KMM.gif" NOSAVE BORDER=0 height=24 width=24>,
+copy the last keyframe of the Grenade Toss. Paste it onto the new action's
+first frame.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>Count
+the number of steps between the last and second-to-last keyframe of the
+Grenade Toss. (The number of steps will be the number of frames between
+two keyframes, plus one. This is the number of frames you need to advance
+to get from one frame to another. For example, two back-to-back keyframes
+will have one step between them, and keyframes which are seven frames apart
+will have eight steps between them.) Copy the second-to-last keyframe.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>Add
+the number of steps between the last and second-to-last keyframe of the
+Grenade Toss to the number of the current keyframe in the new action, which
+in this case will be 1. Enter the sum in the frame number text box. For
+example, if there are four steps between the last and second-to-last keyframe
+of the Grenade Toss, and the last keyframe you pasted in the new animation
+was 5, 4 + 5 = 9, so you would enter "9" in the frame number text box.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>Paste
+the keyframe to the new frame of the new action.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>Count
+the number of steps between the second-to-last and third-to-last keyframe
+of the Grenade Toss. Copy the third-to-last keyframe.
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/INYA.gif" NOSAVE BORDER=0 height=100 width=100>Add
+the number of steps between the second-to-last and third-to-last keyframe
+of the Grenade Toss to the number of the current keyframe in the new action.
+Enter the sum in the frame number text box, then paste the keyframe to
+the new frame of the new action. Repeat until the new animation is a reversed
+version of the Grenade Toss. If the new animation has exactly 17 frames,
+then you've done everything right.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><b>COLLECTIVE CHOREOGRAPHY</b></center>
+
+<p>> Once all 20 of your PPM's animations are finished, the next step is
+to compile them into a single choreography. Start a new choreography and
+apply your model to it. Import your PPM's Actions to the model in the choreography
+one by one. You must import the Actions in the exact order of the frames
+table. (First Stand, then Run, then Attack, etc.) If you've imported all
+of the Actions and realize that one or more is out of order, you can correct
+this by dragging the out-of-place Actions to their correct positions.
+<p>> Check the choreography to see if it has exactly 198 frames from the
+first frame of Stand, to the last frame of Death3. If there are more than
+198 frames, either some of your Actions have extra frames, or you accidentally
+imported an Action twice. If there are less than 198 frames, some of your
+Actions may have too few frames, or you may have forgotten to include an
+Action or two in your choreography. And of course, remember to save your
+choreography.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/JRascot_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-title.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=80 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Quake2_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-Quake2.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=50 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Tutorial_Page(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/Quake2-Tutorial.gif" HSPACE=1 VSPACE=1 NOSAVE BORDER=1 height=25 width=100></a><font face="Nosfer"><font color="#FFFFFF">
+Animations</font></font></center>
+
+</body>
+</html>

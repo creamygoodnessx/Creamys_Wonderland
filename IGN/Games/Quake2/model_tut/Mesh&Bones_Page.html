@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><meta name="Author" content="Jason 'Creamy Goodness' Tenn"><meta name="GENERATOR" content="Mozilla/4.8 [en] (Win98; U) [Netscape]"><title>Creamy's Quake2 PPM Modeling Tutorial - Step 1: Mesh And Bones</title></head>
+<body alink="#ffff00" bgcolor="#000000" link="#33ff33" text="#ff8080" vlink="#660000">
+<center><div style="text-align: center;">
+</div>
+<script type="text/javascript">document.write("<"+"script type='text/javascript' src='http://wrapper.gamespyid.com/a?pagetype=pnh_content&size=728x90'>");
+document.write("<"+"/script>");
+</script>
+<noscript><iframe valign=top WIDTH=728 HEIGHT=90 MARGINWIDTH=0
+MARGINHEIGHT=0
+HSPACE=0 VSPACE=0 FRAMEBORDER=0 SCROLLING=no BORDERCOLOR="#000000"
+SRC="http://wrapper.gamespyid.com/a?pagetype=pnh_content&size=728x90&sizew=728&sizeh=90&js=false">
+</iframe>
+</noscript>
+</center>
+<hr width="100%">
+<p style="text-align: center;"><font face="SpaceOne"><font color="#00ff80"><font size="+2">My
+Quake2
+Modeling Tutorial:</font></font></font>
+<br>
+<u><font face="SpaceOne"><font color="#00ff80"><font size="+2">Step 1:
+Mesh And Bones</font></font></font></u></p>
+
+<p><font face="SpaceOne">&gt; The first thing you need to do is build
+your
+mesh in <a href="http://www.hash.com/" target="_top">Animation: Master</a>.
+I would assume you're at least proficient in
+the program, but I will give you a few tips to help you along...</font></p>
+<center><hr width="100%">
+<p><b><font face="SpaceOne">BASIC TIPS</font></b></p>
+</center>
+<p><font face="SpaceOne">&gt; As any <a href="http://www.hash.com/" target="_top">A:M</a> user knows, a patch can
+consist of
+three or four connected splines. However, a <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake2</a>
+model can only
+consist
+of three sided polygons. Whenever an A:M model is converted into a
+polygon
+based one, it's patch count will translate into a higher number of
+polygons.
+Since a four-sided patch will be split into two polygons, the more four
+sided patches your model has, the greater the increase of patches to
+polys.
+If all of the patches in your model are four sided ones (which is
+usually
+not the case), your patch count will simply be doubled into polygons.</font>
+</p>
+<center>
+<p><img src="http://creamyg.planetquake.gamespy.com/rule02.gif" nosave="" style="height: 22px; width: 468px;" title="" alt=""></p>
+</center>
+
+<p><font face="SpaceOne">&gt; Whenever modeling a mesh that will
+eventually
+be converted into a Quake2 model, (or any other format that uses only
+peeked
+splines), it's generally a good idea to build it with peeked splines.
+Sometimes,
+it's useful to use a curved spline, especially when tracing a line from
+a rotoscope.</font></p>
+<hr width="100%">
+<center>
+<p><b><font face="SpaceOne">ROTOSCOPES</font></b></p>
+</center>
+<p><font face="SpaceOne">&gt; Whenever you build a complex model, it's
+a good
+idea to apply rotoscopes as references to whatever you're attempting to
+model. If you're modelling a commercial cartoon character, the best
+rotoscopes
+will usually be the character's official turnaround model sheet. Such
+an
+image can be found on the Internet, or from the official artwork book
+of
+whatever show or movie the character is from (The Making of...). If you
+can't find any such official model sheet, you can improvise by
+capturing
+screenshots of the character, and use those as your rotoscope. (Of
+course,
+you need access to a video adapter card or a TV tuner to take
+screenshots.)
+This method can be tricky, because it's not always easy to tell if an
+angle
+is exactly the front, profile, or whatever angle you're trying to
+capture.
+Even if the character is facing the right direction, a slight tilt can
+throw you off when used as a rotoscope. So take several shots of each
+desired
+angle, taking your best guess as to what the exact front view, profile,
+and back view should look like. As a guide, you can use a turnaround
+model
+sheet of another character to choose the best screenshots. When
+applying
+the rotoscopes, make sure all the angles are consistant with each
+other.
+(The nose on one rotoscope has to be consistent with the nose on the
+others,
+and so must every other part of the character.)</font>
+</p>
+<p><font face="SpaceOne">&gt; The ideal rotoscopes you can use for
+modelling
+a character in 3D are full body shots of the exact front, side, back,
+angles.
+Sometimes, it may be helpful to use a top view of the character, but
+such
+an angle is usually not included in an offical model sheet, and is by
+far
+the most difficult find a screenshot of. It's not always possible to
+find
+a screenshot of turnaround model sheet quality (with the character
+standing
+upright, with his/her hands to the side, with both legs straight, shot
+at the exact angle desired, and with none of the body cropped out of
+the
+shot), but there's a way to get around this issue. Here's what I do
+whan
+I run into this problem. I take screenshots of the head, torso, and
+legs,
+and apply them as separate rotoscopes. First, I apply the head
+screenshots
+as rotoscopes to their appropriate angles, then build the head portion
+of the model. Next, I delete the head rotoscopes, then apply those of
+the
+torso, then build the model's torso. Finally, I follow suit with the
+legs.</font></p>
+<center><hr width="100%">
+<p><b><font face="SpaceOne">MISSING PATCHES</font></b></p>
+</center>
+<p><font face="SpaceOne">&gt; If there is a hole where there should
+logically
+be a patch, delete a spline of the missing patch. Use the Add Lock&nbsp;<img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/AddLock.gif" nosave="" style="border: 0px solid ; height: 32px; width: 32px;" title="" alt="">
+feature to create separate a spline with four control points. Attach
+the
+second control point of this line to a CP of the spline you deleted,
+and
+the third to the other deleted CP. This should cause the patch to
+appear
+properly. You can now delete the first and fourth CP of your new
+spline.
+I have Strykerwolf at Polycount to thank for this method.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_1.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_1.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Patch Repair 1" hspace="3" vspace="3"></a><font face="SpaceOne">Sometimes,
+there will be a seemingly valid patch that just doesn't exist.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_2.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_2.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Patch Repair 2" hspace="3" vspace="3"></a><font face="SpaceOne">Delete
+one of the splines of the uncooperative non-patch.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_3.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_3.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Patch Repair 3" hspace="3" vspace="3"></a><font face="SpaceOne">Create
+a new spline with four control points.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_4.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_4.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Patch Repair 4" hspace="3" vspace="3"></a><font face="SpaceOne">Attach
+the second CP of the spline to one of the CPs of the spline you
+previously
+deleted...</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_5.gif"><img alt="Patch Repair 5" title="" style="border: 2px solid ; height: 100px; width: 100px;" nosave="" src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_5.gif" hspace="3" vspace="3"></a><font face="SpaceOne">...and
+the third CP to the other deleted CP. This should cause the patch to
+work
+properly.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_6.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Tut1_6.gif" nosave="" title="" alt="Patch Repair 6" style="border: 2px solid ; width: 100px; height: 100px;" hspace="3" vspace="3"></a><font face="SpaceOne">Delete
+the now unnecessary first and fourth control points of the temporary
+spline.</font>
+</p>
+<center>
+<p></p>
+<hr width="100%">
+<p><b><font face="SpaceOne">CREASE REDUCTION</font></b></p>
+</center>
+<p><font face="SpaceOne">&gt; A major ass itch that 3D animators must
+face
+is abnormal creasing in their models while animating them. Fortunately,
+<a href="http://www.hash.com/" target="_top">Animation: Master</a> 99
+and all versions following it have a feature
+called
+SmartSkin. SmartSkin allows you to assign control points to particular
+locations depending on the rotation of certain bones. Here's how it
+works...</font>
+</p>
+<p><font face="SpaceOne">&gt; During the building of your mesh, make
+sure
+you build its joints a certain way in order for it&nbsp; to take
+advantage
+of SmartSkin.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow.gif" nosave="" title="" alt="Elbow Rings" style="border: 2px solid ; width: 100px; height: 100px;" hspace="3" vspace="3"></a><font face="SpaceOne">Your
+model's elbows should each consist of two unconnected rings of
+splines...</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Knee.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Knee.gif" nosave="" title="" alt="Knee Rings" style="border: 2px solid ; width: 100px; height: 100px;" hspace="3" vspace="3"></a><font face="SpaceOne">...while
+the knees should consist of two rings connected at the back of the
+knees.</font>
+</p>
+<center>
+<p><img src="http://creamyg.planetquake.gamespy.com/rule02.gif" nosave="" style="height: 22px; width: 468px;" title="" alt=""></p>
+</center>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/NoSS_Elbow90.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/NoSS_Elbow90.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="No SmartSkin - Elbow 90 Degrees" hspace="3" vspace="3"></a><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/NoSS_Elbow135.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/NoSS_Elbow135.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="No SmartSkin - Elbow 135 Degrees" hspace="3" vspace="3"></a><font face="SpaceOne">Here
+is an elbow joint bending at 90 degrees and 135 degrees without the
+assistance
+of A:M's SmartSkin.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow90.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow90.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="SmartSkin - Elbow 90 Degrees" hspace="3" vspace="3"></a><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow135.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/SS_Elbow135.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="SmartSkin - Elbow 135 Degrees" hspace="3" vspace="3"></a><font face="SpaceOne">This
+is the same elbow bending at the same angles above, but with the aid of
+SmartSkin.</font>
+</p>
+<center>
+<p><img src="http://creamyg.planetquake.gamespy.com/rule02.gif" nosave="" style="height: 22px; width: 468px;" title="" alt=""></p>
+</center>
+<p><font face="SpaceOne"><font color="#ff8080">&gt; After applying a
+skeleton
+to your model, apply a SmartSkin to one of your model's bones. Select a
+bone, right-click it, and select 'New SmartSkin'. After selecting an
+axis
+in which to apply the SmartSkin on, a new window will open, in which
+your
+selected bone will be bent at a 90 degree angle. In this window, you
+can
+manipulate control points to suit the angle of the bone with a minimum
+amount of creasing. After the SmartSkin is applied, it will take effect
+in all of the model's animations. Here is a list of the bones and
+angles
+I use the SmartSkin feature on...</font></font>
+</p>
+<center>
+<p><font face="SpaceOne"><font color="#ff8080">CHEST</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">X - -90, 90, 135</font></font>
+</p>
+<p><font face="SpaceOne"><font color="#ff8080">BICEPS</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">X - 90</font></font>
+</p>
+<p><font face="SpaceOne"><font color="#ff8080">FOREARMS</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">X - 90, 135</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">Y - -90, 90</font></font>
+</p>
+<p><font face="SpaceOne"><font color="#ff8080">HANDS</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">X - -90, 90</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">Y - -90, 90</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">Z - -180, -90, 90, 180</font></font>
+</p>
+<p><font face="SpaceOne"><font color="#ff8080">CALVES</font></font>
+<br>
+<font face="SpaceOne"><font color="#ff8080">X - 90</font></font>
+</p>
+<p><img src="http://creamyg.planetquake.gamespy.com/rule02.gif" nosave="" style="height: 22px; width: 468px;" title="" alt=""></p>
+</center>
+<p><font face="SpaceOne">&gt; In order to make your model's wrist twist
+properly
+while your model's hands twist, it's a good idea to rotate each ring of
+splines down the arm all the way to the shoulder. (This belongs to the
+Z-Axis of the hands.) This should be done gradually up the arm. It may
+take you about an hour to find the right rotations for each ring of the
+arm, but patience can pay off big time.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist90.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist90.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Wrist Fix 1" hspace="3" vspace="3"></a><font face="SpaceOne">First,
+find the right rotations for the 90 degree mark of the wrist's Z-Axis...</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist180.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist180.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Wrist Fix 2" hspace="3" vspace="3"></a><font face="SpaceOne">...and
+then for 180 degrees...</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist-90.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist-90.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Wrist Fix 3" hspace="3" vspace="3"></a><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist-180.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/WristTwist-180.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Wrist Fix 4" hspace="3" vspace="3"></a><font face="SpaceOne">...and
+finally for -90, then -180 degrees respectively.</font>
+</p>
+<center>
+
+<hr width="100%">
+<p><b><font face="SpaceOne">EASY EYELIDS</font></b></p>
+</center>
+<p><font face="SpaceOne">&gt; The SmartSkin can be used to conveniently
+animate
+certain parts of a model where the conventional use of bones isn't
+practical.
+For example, a model's eyelids can be fitted with a SmartSkin so that
+they
+can open and close with the simple movement of a bone. In order to make
+this work, a bone must be created for each eyelid. These "eye bones"
+should
+be detached from the rest of the model's skeleton.</font>
+</p>
+<p><font face="SpaceOne">&gt; Create a new SmartSkin for the Z-axis of
+one
+of the eyelid bones, and set the axis to 0 degrees. Rotate and
+translate
+the eyelid to cover the eye completely, so that the eye looks like its
+closed all the way. (Whenever I first model the eyelids, they are in
+closed
+position by default. So applying their SmartSkin is just a matter of
+creating
+a new keyframe instead of manipulating the control points. Sometimes, I
+select the eyelid, then press the up key once, then the down key once
+just
+to make sure the keyframe is created.) Then set the bone's Z-axis to
+179
+degrees, and manipulate the control points of the eyelid so that the
+lid
+is turned upward just above the eye, and buried completely inside the
+head.
+If the SmartSkin is applied correctly, turning the Z-axis during one of
+the model's animations should cause the eyelid to open and close; the
+lower
+the number of the Z-axis, the more closed the eye will be, the higher
+the
+number, the more open. If you notice any irregular movement of the
+eyelid,
+it can probably be fixed by setting a half-open value on its Z-axis at
+90 degrees. Of course, you will have to repeat the entire process on
+the
+other eyelid.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_01.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Brandy Oteigh - Easy Eyelid 1" hspace="3" vspace="3"></a><font face="SpaceOne">The
+blue and pink bones you see, which are parallel with Brandy's eyes, are
+the
+Left and Right Eye Dials, which will control the opening and closing of
+the eyelids. Notice that in the Project Workspace, they are independent
+from the Pelvis tree.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_02.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Brandy Oteigh - Easy Eyelid 2" hspace="3" vspace="3"></a><font face="SpaceOne">Right
+click on one of the eye dials, and in the this case, it will be the
+Right
+Eye Dial. Select New SmartSkin, then Z-Rotate. A new window will open.
+This is where you will create the SmartSkin.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_03.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Brandy Oteigh - Easy Eyelid 3" hspace="3" vspace="3"></a><font face="SpaceOne">The
+number on the frames scroll bar indicates the value of the Z-axis, and
+will start at 90 degrees. Set this value at 0 degrees, and move the
+control
+points of the right eyelid, so that it covers the eye completely. If
+the
+control points are already in place, select all the control points for
+the eyelid, then press up on the keyboard once, then down once. This
+will
+ensure that a keyframe is created for the 0 degree value of the
+SmartSkin.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_04.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Brandy Oteigh - Easy Eyelid 4" hspace="3" vspace="3"></a><font face="SpaceOne">Now,
+set the Z-axis to 179, and rotate and translate the eyelid, so that
+most
+or all of it is buried inside the head, just above the eye. This should
+give the appearance that the eye is open.</font>
+<br>
+&nbsp;
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_05.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE1_05.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Brandy Oteigh - Easy Eyelid 5" hspace="3" vspace="3"></a><font face="SpaceOne">Finally,
+in order to create a middle ground between your SmartSkin's two
+keyframes,
+set the Z-axis to 90, and manipulate the eyelid so that the eye is
+exactly
+half open. It is often necessary to go back and forth between the 179
+and
+90 keyframes to make further adjustments to the eyelid, so that it
+opens
+and closes smoothly.</font>
+</p>
+<center>
+<p><img src="http://creamyg.planetquake.gamespy.com/rule02.gif" nosave="" style="height: 22px; width: 468px;" title="" alt=""></p>
+</center>
+<p><font face="SpaceOne">&gt; Fo<font color="#ff8080">r my <a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/PPM_Page.html">Dib</a>
+mod</font>el, I used a different method for the eyelid SmartSkins than
+my other models. In the case of most of my models, the eyes are part of
+the model's skin, and the eyelid moves to cover and uncover it. I find
+it easiest to initially model the eyelids in the closed position,
+because
+this position needs to be modelled more accurately than the open
+position.
+(When closed, the eyelid needs to be the right size and shape to cover
+the eyes completely, and be only as big as it needs to be. When open,
+the
+eyelid will be hidden inside the head, and doesn't have to be as
+accurate
+as when it's closed.) However, in the case of the Dib model, I
+initially
+modelled the eyes in the open position. Dib has no eyelids, but
+instead,
+the eye itself is a separate part of the face which changes shape based
+on how open or closed it is. Each eye also includes a 6 patch segment
+that
+shows the eye in its fully closed position, and this segment is buried
+within the head until needed.</font>
+<br>
+&nbsp;
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_01.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dib - Easy Eyelid 1" hspace="3" vspace="3"></a><font face="SpaceOne">Because
+the default position of Dib's eyes is open, I started with a Z-axis
+setting
+of 179. Like my other models, I created the keyframe by selecting the
+control
+points of the eye, then pressing up once, then down once.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_02.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dib - Easy Eyelid 2" hspace="3" vspace="3"></a><font face="SpaceOne">At
+the 90 degree mark, I pulled the top part of the eye down, close to the
+middle of the eye.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_03.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dib - Easy Eyelid 3" hspace="3" vspace="3"></a><font face="SpaceOne">At
+the 1 degree mark, I pulled the bottom part of the eye up, close to the
+middle of the eye. This gives Dib a squinting look, and the eye is
+almost
+closed. I also made a keyframe of the closed eye segment on this frame,
+still buried in the head.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_04.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/EE2_04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dib - Easy Eyelid 4" hspace="3" vspace="3"></a><font face="SpaceOne">At
+the 0 degree mark, I buried the eyeball within the head, and brought
+out
+the closed eye segment.</font>
+</p>
+<p><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Channel_Lin.gif"><img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Channel_Lin.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dib - Easy Eyelid 5" hspace="3" vspace="3"></a><font face="SpaceOne">After
+the keyframes of the SmartSkin are completed, I straightened all of its
+curves in order to eliminate any awkward in-between frame activity. I
+did
+this by making sure no control points were selected, and then I went
+into
+Edit Channels&nbsp;<img src="http://creamyg.planetquake.gamespy.com/Games/Quake2/Model_Tut/Edit_Channels.gif" nosave="" style="height: 24px; width: 24px;" title="" alt="">.
+I selected all of the control points in the Channels window, and in the
+Group window, I clicked on the Linear option button.</font>
+</p>
+
+<hr width="100%">
+<center><a href="http://creamyg.planetquake.gamespy.com/" target="_top"><img src="http://creamyg.planetquake.gamespy.com/LFM/LFM-Title.gif" nosave="" title="" alt="CW front page" style="border: 1px solid ; width: 120px; height: 80px;" hspace="2" vspace="2"></a><a href="http://creamyg.planetquake.gamespy.com/Games/Games_Intro%28fs%29.html" target="_top"><img src="http://creamyg.planetquake.gamespy.com/LFM/LFM-Games.gif" nosave="" style="border: 1px solid ; height: 50px; width: 120px;" title="" alt="Games" hspace="2" vspace="2"></a><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Quake2_Intro%28fs%29.html" target="_top"><img src="http://creamyg.planetquake.gamespy.com/LFM/Games-Quake2.gif" nosave="" style="border: 1px solid ; height: 25px; width: 100px;" title="" alt="Quake 2" hspace="1" vspace="1"></a><font color="#000000">_</font><font color="#ffffff"><a href="http://creamyg.planetquake.gamespy.com/Games/Quake2/Tutorial_Page%28fs%29.html" target="_top">Modeling
+Tutorial</a> |<font size="-1"> <font face="Nosfer">Mesh &amp; Bones</font></font></font></center>
+</body></html>

@@ -1,0 +1,1315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<script><endnote><head>
+<script><endnote><head>
+<script></script>
+<meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type"><title>Creamy's Quake2 PPM Modeling Tutorial - Step 3: Optimization</title></head>
+<body style="color: rgb(255, 128, 128); background-color: rgb(0, 0, 0);" alink="#ffff00" link="#33ff33" vlink="#660000">
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3246876018000001";
+/* CreamyG Leaderboard */
+google_ad_slot = "1496340515";
+google_ad_width = 728;
+google_ad_height = 90;
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<hr width="100%">
+<p style="text-align: center; font-family: Press Start K; color: rgb(0, 255, 128);"><font size="+1">My Quake 2
+Modeling Tutorial:<br>
+Step 3:
+Optimization</font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; After you finish
+all 20 of your
+animations,
+and are sure that they have exactly 198 frames altogether, your next
+goal
+is to clean it up a bit for use as a <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> PPM. This is called optimization,
+and covers many areas such as making sure your model is the right size,
+sealing up unwanted holes in the mesh, and a few other things as well.</font>
+</p>
+<center>
+<hr width="100%">
+<p style="font-family: Press Start K; color: white; text-decoration: underline;"><font size="-2"><b>Rotation, Translation,
+&amp; Scale</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The first step of
+the optimization phase
+of
+building your PPM is to make sure your model is standing on the right
+spot,
+facing the right way, and the right size. In order to do this, we need
+to compare it to a completed <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> PPM, and use that as a reference to
+make the appropriate adjustments to your model. Because <a href="http://www.hash.com/" target="_top">Animation:
+Master</a>
+does not have very good import / export support, we can't import a
+Quake 2
+PPM into AM, so we must export your model to a format that can be
+opened
+in <a href="http://www.xs4all.nl/%7Erenep/quakeme/" target="_top">Quake
+Model Editor</a>. We will save it as a 3ds file, because QME uses
+this type of model. However, you can't save a model as a 3ds in AM
+until
+you install the 3dsMax export plugin, which you can download
+<a href="ftp://ftp.hash.com/pub/plugins/ImportExport/Windows/3ds/3ds.hie">here</a>
+from <a href="ftp://ftp.hash.com/pub/" target="_top">Hash
+Inc.'s
+official
+FTP site</a>. Once you download the plugin, simply place it in
+the IE
+sub-folder
+of wherever you installed AM.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Before you begin
+exporting your model,
+make
+sure that your frames are shown by their current cell number, so that
+Frame
+1 is displayed as "1". To do this, go to the Tools menu, and choose
+Options.
+In the Units tab, there will be a section called "Show time as". Make
+sure
+"Cell number (1)" is selected, then click OK.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In the Project
+Workspace window, right
+click
+your choreography, then pick Export. If Export is not available,
+opening
+a window in your Choreography first might fix this. When giving your
+model
+a name in the Export Model As window, save it as a 3ds file. If
+the 3ds file type is not available, then you haven't installed the
+3dsMax
+export plugin. Just remember to restart AM after installing the plugin
+in order for it to take effect. When you click OK, you will see a new
+window
+named Export Options. Here, you will be given an option called Polygons
+Per Patch. At this point, it won't make too much of a difference which
+one you choose, because for now you're only exporting for comparison
+purposes.
+I recommend you pick "1", because this will give you the lowest polygon
+count. Once you click OK, you will see yet another window, this one
+being
+Frame Range. For both the Start and End values, enter "1". Doing so
+will
+export only the first frame of your model, which is fine for now. Since
+we are only dealing with one frame, the Step value doesn't matter. Once
+you click OK, your model's first frame will be saved as a 3ds model,
+and
+will be ready for use in QME.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3ds_Plugin.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3ds_Plugin.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="3dsMax Export Plugin" hspace="3" vspace="3"></a>Make
+sure the 3dsMax export plugin (3ds.hie) exsists in your Animation:
+Master
+/ IE directory.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Cell_Number.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Cell_Number.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Cell Number" hspace="3" vspace="3"></a>In
+order to avoid confusion later on, make sure that your frames are shown
+by their current cell number. Access the Units tab by going to the
+Tools
+menu, then choosing Options.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EMA3ds.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EMA3ds.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Export Model As 3DS" hspace="3" vspace="3"></a>In
+the Export Model As window, save your model as a 3ds file.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EO_PPP1.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EO_PPP1.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Export Options" hspace="3" vspace="3"></a>In
+the Export Options window, pick one polygon per patch. This will export
+your model with the lowest
+<br>
+polygon count.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/FR01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/FR01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Frame Range 1" hspace="3" vspace="3"></a>In
+the Frame Range window, set Start to "1", and End to "1", so that only
+the first frame of your model's animation gets exported.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Now it's time to
+load your model into
+Quake
+Model Editor, and compare it to an official Quake 2 model so you can
+correctly
+adjust your model for use as a PPM. Open QME, but don't close
+Animation: Master yet. Import your newly created 3ds file by going to
+the File menu,
+Import, Import Append Verts. When the Import File For Editing window
+comes
+up, open your 3ds model, which will probably have a 0 added to its
+filename.
+If your model doesn't show up on screen, it could be severely
+off-center
+or too small. If this is the case, you can pan and zoom your views by
+turning
+on the Pan Views&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Pan_Views.gif" nosave="" border="0" height="19" width="59">
+button on the lower-right corner of the screen. Once on, moving your
+pointer
+over the views should turn it into a hand. You can rotate the view by
+going
+to the upper-right view, holding down the left mouse button, and
+dragging
+the mouse around. To pan the camera, go to any other view, hold down
+the
+left mouse button and drag. In order to zoom, go to any view, hold down
+the right mouse button, and move the mouse up to zoom in, or down to
+zoom
+out. But if your original model is already centered in AM2000 and not
+microscopic,
+you should be able to see it just fine in QME.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Now we're going to
+bring in the
+comparison
+model.
+In this case, we'll pick the Male model, because it comes with Quake 2,
+and it's guaranteed be a good reference. Go to the File menu, Choose
+Reference
+Model. This will open up a window called Open File For Editing, from
+which
+you can find and open Quake 2's Male model. This model is called
+tris.md2,
+and can be found in baseq2/players/Male in the folder where Quake 2 is
+installed.
+Once you open tris.md2, you should see it in your upper-right view,
+along
+with your model.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAV.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAV.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Import Append Verts" hspace="3" vspace="3"></a>In
+QME, open your one-frame 3ds by going to the File menu, and then
+Import,
+and Import Append Verts.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Model Visible" hspace="3" vspace="3"></a>You
+should see your model in all four views.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/CRM.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/CRM.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Choose Reference Model" hspace="3" vspace="3"></a>Open Quake 2's default Male model as
+your reference model. Under the File
+menu,
+pick Choose Reference Model. In the Quake 2/baseq2/players/Male folder,
+open tris.md2.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Model With Ref" hspace="3" vspace="3"></a>You
+should see Male in the 3D view along with your model.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The next step is
+to adjust the position,
+direction,
+and size of your model, using the Male model as your reference. Now,
+you're
+probably thinking that this is done in QME, but it's actually a job for
+Animation: Master. Go to the first frame in your Choreography, and
+click
+on your model in the Choreography. Using the open QME window as a
+guide,
+adjust the direction of your model. Don't worry about the position or
+size
+of your model just yet; we'll do each in turn. When adjusting the
+direction
+of your model in AM, just remember that the lower-left view in QME is
+the
+front view by default. Also remember that the upper-left view is the
+top
+view by default, and in this view, your character should be facing the
+bottom of the screen. In fact, if you know this, you don't need the
+reference
+model to correctly adjust your character's direction. If your model is
+facing forward in Animation: Master, it should be facing to the left in
+QME. In order to fix this, go to your character's first frame in the
+Choreography
+window in AM, select your character, and in the Properties window, go to the Rotate tab, and
+choose
+to edit angle as Euler. Entering "90" in the Y field should cause your
+character to make a quarter-turn to the left. However, this will only
+happen
+to the Stand animation. Go to the first frame of each of the other
+animations
+in the Choreography, and set their Rotate Y value to 90, until all of
+your
+animations face the right way. Run through the frames and verify that
+everything's
+OK, then save your Choreography. Export your Choreography again in the
+same way as before. Start a new file in QME, but make sure not to save
+your model when prompted. Open the new 3ds in QME. If you don't start a
+new file before re-opening the new 3ds, you will see both versions of
+the
+model at the same time, and this will double your model's polycount. If
+the model faces the bottom of the screen in the top view, and faces
+towards
+you in the front view, then it's turned the right way.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/JTHM_Top.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/JTHM_Top.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - JTHM - Top" hspace="3" vspace="3"></a>In
+QME, the upper-left window shows the top of your model. A correctly
+oriented
+model will face the bottom of the screen in this view.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/JTHM_Front.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/JTHM_Front.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - JTHM - Front" hspace="3" vspace="3"></a>The
+lower-left window shows the front of your model. If your model is
+facing
+you in this view, it's facing the right way.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rot_Dif.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rot_Dif.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Rotation Difference" hspace="3" vspace="3"></a>Models
+in QME are oriented a quarter turn clockwise of models in AM. Because
+of
+this, your model may be facing the left side of the screen in the
+upper-left
+view of QME.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frame1_Sel.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frame1_Sel.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Frame 1 Selection" hspace="3" vspace="3"></a>In
+AM, make sure you're in the first frame of your choreography, and that
+your model is selected.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Rotation Fix 1" hspace="3" vspace="3"></a>In
+the Properties window, go to the Rotate tab. Make sure that Edit Angle
+As is set to Euler. Entering "90" in the Y field should cause your
+character
+to make a quarter turn counter-clockwise.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Rotation Fix 2" hspace="3" vspace="3"></a>All
+frames of Stand should now be facing the right way. However, the rest
+of
+the animations are still oriented incorrectly. Go to the first frame of
+Run and make the same correction by entering "90" in the Y field.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rotate_Fix03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Rotation Fix 3" hspace="3" vspace="3"></a>Repeat
+the process with the rest of the animations.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Save_No.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Save_No.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Save (No)" hspace="3" vspace="3"></a>After
+re-exporting you model's first frame as a 3ds, be sure to start a new
+model
+in QME, but do not save the old model when prompted.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rot_Correct.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Rot_Correct.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Rotation Correct" hspace="3" vspace="3"></a>If
+your model is facing the bottom of the screen in the upper-left window,
+and facing forward in the lower-left view, then it's facing the right
+way.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The next thing to
+do is to make sure your
+model
+is standing in just the right spot, and that its feet are on the floor.
+This would be a lot easier if the reference model showed up in all four
+views, but we only have the upper-right perspective view to work with.
+In Animation: Master, if your model's feet are on the 0 mark of the Y
+axis,
+the model should appear to be hovering above the ground in QME. If you
+built your model so that it's centered on the X and Z axises in AM, it
+should be centered in the same way in QME as well. If so, all you
+really
+need to do is adjust model's vertical position in the Choreography.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In Animation:
+Master, turn off the Key
+Skeletal
+Rotations&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/KSR.gif" nosave="" border="0" height="22" width="23">
+option by clicking on its icon. Select the model, and click the Edit
+Channels&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Edit_Channels.gif" nosave="" border="0" height="24" width="24">
+icon. If the Edit Channels window does not come up, skip ahead to the
+next
+paragraph. A graph will appear, and you should see one or more lines
+that
+may or may not have many control points along them. To the left of the
+graph should be a list, and only Translate (X, Y, and/or Z) should be
+under
+your model's shortcut. Draw a box around all of the control points and
+delete them, then close the Channel window. This should cause the line
+or lines to disappear or become flat and splineless. Deleting these
+control
+points will ensure that when you move model in the first frame to its
+correct
+position, all frames in your model will follow suit.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Now, we are ready
+to correct the position
+of
+your model. In QME, rotate the perspective view so that the Male
+model's
+feet line up vertically. This should give you an idea of where the
+floor
+is going to be. Back in Animation: Master, make sure you're on the
+first
+frame of your Choreography. Select your model and go to any view except
+the bottom or the top. Using the views in QME as a reference, adjust
+your
+model's position in AM, so that its feet in QME are in the same
+vertical
+position as that of the Male model; that is, so that it stands on the
+same
+floor as Male. If your model is centered on the X and Z axises, you
+probably
+want to make sure your model moves only up and down, and not to the
+sides.
+You can do this by locking the Y axis; simply hold down the number 2
+key,
+then drag the model into position. Mercifully, you only have to do this
+for the first frame, and all others should follow suit automatically.
+Once
+you've guessed where the floor is in QME, re-export the Choreography as
+a 3ds in the same way as before. Re-import the 3ds in QME and note its
+position. Continue to fine tune the model in AM, and to export it to
+QME
+after each adjustment. Just remember to make the Choreography 1 frame
+long
+in AM, and to clear the old 3ds files in QME with each adjustment. If
+you
+still need to center your model on the floor, go to QME and turn on
+Show
+Origin in the Options menu. This will cause a plus sign to show up on
+three
+of your views. Your model's feet should be centered on either side of
+this
+plus sign. Once the model is standing on the floor and centered, only
+the
+size adjustment will remain. Now would be a good time to save your
+choreography.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Male_Ref.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Male_Ref.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Male Ref - Correct Position" hspace="3" vspace="3"></a>The
+reference model in the 3D view is standing in the correct spot; It is
+centered
+in the bounding box, and it's standing exactly on the floor. This is
+where
+your model should be standing.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EC_Spline01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EC_Spline01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Edit Channels - Spline 1"></a>Turn
+off Key Skeletal Rotations&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/KSR.gif" nosave="" border="0" height="22" width="23">
+and enter Edit Channels&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Edit_Channels.gif" nosave="" border="0" height="24" width="24">
+mode. You should see a graph that has one or more splines.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EC_Spline02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EC_Spline02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Edit Channels - Spline 2" hspace="3" vspace="3"></a>Select
+all of the control points on the spline, and delete them. Exit Edit
+Channels
+mode.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Male_Side.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Male_Side.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Male Side" hspace="3" vspace="3"></a>In
+QME, rotate the 3D view so that you're looking at the reference model
+exactly
+from the side. Male's feet should line up, one passing exactly in front
+of the other.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/AM_Front.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/AM_Front.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Dib - Front" hspace="3" vspace="3"></a>Back
+in AM, go to first frame of your choreography, make sure your model is
+selected, and switch to any view except Bottom or Top.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Y Adjust 1" hspace="3" vspace="3"></a>If
+your model is already centered on the X and Z axises, you need only to
+move it up and down. Hold down the 2 key as you make your adjustment,
+and
+using the 3D view in QME, guess where your model's feet will touch the
+ground.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Y Adjust 2" hspace="3" vspace="3"></a>Re-export
+the first frame of your model as a 3ds, and in QME, start another new
+model
+without saving the old one. Check your model's feet against that of
+Male.
+Go back into AM, and fine tune the model's position, then re-export.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Y_Adjust03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Y Adjust 3" hspace="3" vspace="3"></a>Repeat
+the adjustments until the bottom of your model's feet are vertically
+lined
+up with the bottom of Male's feet.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Origin_Center.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Origin_Center.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Origin Center" hspace="3" vspace="3"></a>If
+your model in not certered on the X or Z axis, go to the Options menu
+in
+QME and select Show Origin. A plus sign should appear in three of the
+views.
+Adjust your model so that the plus in the top view is directly between
+the feet.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The only thing
+left to adjust now is the
+size
+of your model. The goal is to make your model between one head smaller
+and one head taller than Male. When your model eventually becomes a
+playable Quake 2 PPM, it will be surrounded by an invisible box called
+the
+bounding
+box. Players can hit other players only if they hit this bounding box,
+and the actual size of the model is ignored. The bounding box is the
+same
+size, no matter how big or small your model is. If you make your model
+a giant, and a player hit a part of the model that's outside the
+bounding
+box, it doesn't count as a hit. If the model is tiny, it will be hit if
+a shot hits its bounding box, even if the shot misses the model. So
+your
+goal here is to make your model a reasonable fit for the bounding box.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In Quake Model
+Editor, rotate the
+perspective
+view so that the bottom of your model's feet line up with the bottom of
+Male's feet. If your model is currently taller than Male (it most
+likely
+is), make a note of how high the top of Male's head is to your model.
+In Animation: Master, make sure you're on the first frame in the
+Choreography
+window, and click on the vertical ruler on the left side of the window.
+An arrow should appear on the ruler, as well as a horizontal line,
+which
+should span the length of the window. This is called a marker. Now,
+decide
+how tall you want your model to be. If you want your model to be as
+tall
+as Male, adjust the marker so that it points to the same spot on your
+model
+where the top of Male's head is in QME. If you want your model to be
+taller
+or shorter than male, adjust the marker to where you want the top of
+your
+model's head to be next to Male. Then, select your model in AM, grab
+one
+of the corners of the selection box, and drag it so that your model's
+hieght
+matches that of the marker. Export the file as a 3ds and compare it to
+Male, the same as you've been doing before. Fine tune the model if
+necessary,
+then save your choreography again.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Suggested_Height.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Suggested_Height.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Suggested Height" hspace="3" vspace="3"></a>In
+order for your model to be a fair fit for Quake 2's bounding box, it
+should
+be between one Male head shorter and one Male head taller than Male.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Scale Fix 1" hspace="3" vspace="3"></a>In
+QME, rotate the 3D view so that the bottom of your model's feet are
+lined
+up vertically with the bottom of Male's feet. Observe where the top of
+Male's head is positioned next to your model.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Scale Fix 2" hspace="3" vspace="3"></a>In
+AM, go to your choreography's first frame, and place a horizontal
+marker
+where the top of Male's head was on your model in QME. Adjust the
+height
+of the marker depending on how tall your model will be in Quake 2.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Scale Fix 3" hspace="3" vspace="3"></a>Select
+your model and resize it by grabbing one of the box's corners and
+dragging
+the mouse. Resize your model by having the top of your model match the
+hieght of the horizontal marker.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix04.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Scale_Fix04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Scale Fix 4" hspace="3" vspace="3"></a>Re-export
+the first frame of your model as a 3ds, and in QME, start another new
+model
+without saving the old one. Make sure your model's height is not
+significantly
+greater or less then that of Male. Re-adjust and re-export if needed.</font>
+</p>
+<hr width="100%">
+<center style="font-family: Press Start K; color: white; text-decoration: underline;">
+<p><font size="-2"><b>Animation Export</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; While this step
+does not directly involve
+optimizing
+your model, it is an important bridge between the steps that do. If
+this
+step is not done correctly, it can lead to trouble later on. The goal
+here
+is to export all 198 frames of your model into the 3ds format, a type
+of
+model that can be read in <a href="http://www.xs4all.nl/%7Erenep/quakeme/" target="_top">Quake
+Model Editor</a>.
+After this step, you may
+not need <a href="http://www.hash.com/" target="_top">Animation:
+Master</a> for
+the rest of the project, depending on weather
+or not you want to build a custom VWEP for your model.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In Animation:
+Master, export your model
+as a
+3ds file again. However, this time in the Frame Range window, make sure
+Start is set to "1", End to "198", and Step to "1". This will export
+every
+frame from 1 to 198 without skipping any frames. As for Polygons Per
+Patch,
+I strongly recommend you choose "1", since this will give you the
+lowest
+polygon count.&nbsp;<a href="http://polycount.com/" target="_top">Polycount</a>
+suggests a polygon count of 800 or less for a Quake 2 model in order to
+preserve game performance. Keep in mind that this exporting process
+will
+save each frame as a separate numbered file from 0 to 197, so it may be
+a good idea to put them in their own folder. The process of exporting
+all
+198 frames may take several minutes, so this would be a good time to
+take
+a break.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; ONCE YOU EXPORT
+YOUR MODEL TO THE 3DS
+FORMAT,
+YOU CANNOT RE-IMPORT IT BACK INTO ANIMATION: MASTER. Any changes you
+want
+to make to the model's mesh or animations will have to be done in Quake
+Model Editor. If you insist on doing these changes with AM, you will
+have
+to change the original model, and then repeat all of the steps after
+that
+all over again. So before you export all of your frames, you better
+make
+damn sure you don't want to later go back and change anything. Once all
+frames have been exported, you can close Animation: Master.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The next step is
+to change the names of
+your
+3ds files in order to ensure that they are loaded in the correct order
+when you import them into Quake Model Editor. If you were to try to
+import
+them now by alphabetical order, the frames would load into QME in the
+following
+order; 0, 1, 10, 100, 101, 102, etc. This is obviously not what you
+want.
+A solution could be to import the files in chronological order, but the
+files may not have been exported exactly in this order, so this again
+would
+lead to your files being imported into QME in the wrong order. In order
+to fix this problem, make sure that there are exactly three digits in
+the
+numbered portion of the filename of each 3ds file. If the name of my
+model
+was <a href="http://creamyg.jdluke.com/Games/Quake2/PPMs_-_Dib.html">Dib</a>,
+the file
+"Dib15.3ds" would become "Dib015.3ds", and "Dib7.3ds"
+would become "Dib007.3ds". Anything above 100 would be left alone since
+they already have three digits.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/FR02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/FR02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="AM - Frame Range 2" hspace="3" vspace="3"></a>In
+AM, export your model as a 3ds again, but this time in the Frame Range
+window, set Start to "1", and End to "198", so that now all of your
+frames
+get exported. Make sure that Step is set to "1".</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frames_Original.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frames_Original.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Frames Original" hspace="3" vspace="3"></a>Importing
+your 3ds files into QME in alphabetical order now will result in the
+frames
+being loaded in the wrong order.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frames_Corrected.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Frames_Corrected.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Frames Corrected" hspace="3" vspace="3"></a>Change
+the names of the 3ds files so that they all have exactly three digits
+in
+the numbered portion of their filenames.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Go to whatever
+directory you exported
+your files
+into, and count how many 3ds files you exported. If you have exactly
+198
+files, the export was a success, and you can skip this section.
+Otherwise,
+you're probably using the original version of Animation: Master 2000.
+After
+some experimenting, I've realised that AM2000 v8.0 has a problem with
+exporting
+long series of files. Every time I tried to export my <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> Dib model
+as a series of 3ds files, it would give one frame its correct name, but
+then give the next frame the same name as the one before it,
+overwriting
+the old file. AM would follow the exact same pattern every time I tried
+the export, so that the same frames would be overwritten each time. At
+first, I thought it was the Dib Choreography which was at fault. But
+when
+I exported another Choreography as a series of 3ds files, I got the
+same
+errors in the same exact spots. Here's the method I used to get around
+this problem.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In my notebook, I
+wrote down all of the
+numbers
+of my frames, from 0 to 197, a list that spanned four pages. I deleted
+all of the 3ds files of my Dib model, then went back to Animation:
+Master,
+and re-exported my model as a series of 3ds files, but this time I did
+it an average of 30 frames at a time. Each time I exported a series of
+files, I would choose which frames I wanted to be exported in the Frame
+Range window, just like I've been doing before. But before doing so, I
+made sure that my frames were displayed by the elapsed frames, rather
+than
+the current cell number. Remember, files are always exported from
+Animation: Master by elapsed frames (Frame 1 is displayed as "0"),
+regardless of how
+the frames are displayed. (In order to display the frames this way, I
+went
+to the Tools menu, selected Options, and clicked on the Units tab. In
+the
+"Show time as" section, I picked "Frames Elapsed (0)"). This way, the
+filenames
+matched the number of each frame. As each frame was being rendered, I
+marked
+them off in my book by placing a check where the correct frames were
+being
+rendered. Whenever a frame was being saved as the wrong name, I wrote
+the
+number of the correct frame next to the number of the frame that it
+should
+have been named. For example, Frames 117 to 124 were being saved
+correctly,
+but Frames 125 to 127 were being saved as the previous frames,
+overwriting
+them. Frame 128 and all others after it were correctly named. So I
+wrote
+a 124 next to 125, 125 next to 126, 126 next to 127, while every other
+number had a check next to it. After making sure my filenames each had
+three digits in their frame numbers, I solved my frame problem by
+correctly
+renaming the following files; "Dib126.3ds" to "Dib127.3ds",
+"Dib125.3ds"
+to "Dib126.3ds", "Dib124.3ds" to "Dib125.3ds". Because Frame 124 was
+originally
+exported correctly, but then overwritten by Frame 125, which I later
+renamed
+correctly, I had to then re-export the real Frame 124 by entering "124"
+in both the Start and End fields in the Frame Range window. The problem
+happened again when Frame 63 overwrote Frame 62. So I fixed it by
+renaming
+"Dib062.3ds" to "Dib063.3ds", and then re-exporting Frame 62. Since the
+newly exported file (Dib62.3ds) now had two digits in its frame number,
+I fixed this by renaming it "Dib062.3ds".</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; After your 198
+files have been exported
+successfully,
+and they're all numbered with three digits, it's time&nbsp;to compile
+them
+into a single md2 file. Md2 is the type of model that Quake 2 uses. At
+this
+point, you may close Animation: Master if you haven't done so already.
+Open
+Quake Model Editor, and bring in your model's mesh. Do this by going to
+the File menu, then choosing Import, then Import Append Verts. When the
+Import File For Editing window comes up, go to the directory where you
+saved your 3ds files, and pick any one frame of your model's 3ds
+series,
+then click Open. This should cause your model to appear. Now, we're
+going
+to import your model's animations. Go to File, Import, Import Append
+Frames
+to once again bring up the Import File For Editing window. When it
+does,
+make sure your files are listed in alphabetical order. Single-click the
+last frame of your 3ds series, hold down the Shift key, and then click
+on the first frame of the series. In the Filename text box, you should
+see the names of the first few 3ds files in your series. When you click
+Open, your frames should be opened in the correct order. If you
+selected
+the first frame first and the last frame last, the last frame would
+have
+been opened first, followed by the first, and then the rest of the
+frames.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Once your frames
+are all loaded into QME,
+use
+the horizontal scroll bar at the bottom of the screen to cycle through
+your frames, and check to see if your frames imported correctly. If so,
+then delete the very first frame, which should be the one you saw when
+you imported your verts, and should be numbered "0" and labeled as
+"Frame
+1". To delete the frame, make sure it's the one you see on screen, then
+go to the Edit menu, and choose Delete Current Frame. When asked "Are
+you
+Sure?", click OK. Your model should now have 198 frames, from 0 to 197.
+To save your model as an md2 file, go to the File menu, then Export,
+then
+Export to MD2. In the Export to MD2 File window, give your model a
+name,
+and pick a folder to save it to. After you click Save, another window
+will
+appear, labeled simply as Open. This window will ask you to provide a
+pcx
+image, but since we haven't built any skins yet, just make up any name
+and then click Open. Your model and its animations are now a single md2
+file, but it's far from being an official Quake 2 PPM.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; On the upper-left
+of screen, there are
+four
+tabs, each marked with a single letter; C, M, B, and V. If you want to
+see your model's animations, click on the V tab to expose a section
+called
+Play Cam. To see a certain frame range of your model in motion, enter
+the
+last frame of the range in the To text box, and the first frame in the
+From box. When you press the Play Cam button&nbsp;<img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Play_Cam.gif" nosave="" border="0" height="18" width="63">
+the model in your Perspective view will repeatedly cycle through the
+frames
+you picked, and another press of the button will stop the animation.
+The
+FPS text box sets your frames per second; a higher setting will result
+in a slower animation, while a lower setting will make the animation go
+faster. The default FPS is 10, which is how fast Quake 2 runs its PPMs.
+If you want to see your character run continuously, set To to 45 and
+From
+to 40, then click Play Cam.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAV.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAV.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Import Append Verts" hspace="3" vspace="3"></a>Bring
+your model's mesh into QME by going to the File menu, Import, then
+Import
+Append Verts.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Import_Verts.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Import_Verts.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Import Verts" hspace="3" vspace="3"></a>When
+the Import File For Editing comes up, open your model by choosing any
+one
+of the 3ds files you exported.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAF.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/IAF.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Import Append Frames" hspace="3" vspace="3"></a>To
+apply the animations to your mesh, go to the File menu, and then to
+Import,
+Import Append Frames.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Import_Frames.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Import_Frames.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Import Frames" hspace="3" vspace="3"></a>When
+the Import File For Editing appears again, make sure your 3ds files are
+listed in alphabetical order. Click the last frame of the animation,
+hold
+Shift, and then click the first frame. Click Open to bring in the
+animations.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Four_Views01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Four Views 1" hspace="3" vspace="3"></a>After
+all the frames are applied to your model, use the horizontal scroll bar
+towards the bottom of the screen to go to the very first frame should
+be
+numbered "0" and labeled as "Frame 1".</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Delete_Yes.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Delete_Yes.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Delete (Yes)" hspace="3" vspace="3"></a>Delete
+this first frame by going to the Edit menu, and choosing Delete Current
+Frame. When asked "Are you Sure?", click OK.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EtMd2.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/EtMd2.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Export To MD2" hspace="3" vspace="3"></a>To
+save your model as an md2 file, go to the File menu, then Export, then
+Export to MD2.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Open_Skin.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Open_Skin.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Open Skin" hspace="3" vspace="3"></a>After
+you click Save, another window named "Open" will appear. This window
+will
+ask you to provide a pcx image, but for now just make up any name and
+then
+click Open.</font>
+</p>
+<hr width="100%">
+<center style="font-family: Press Start K; color: white; text-decoration: underline;">
+<p><font size="-2"><b>Flipping Normals</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; I was working on
+my <a href="http://creamyg.jdluke.com/Games/Quake2/PPMs_-_Dib.html">Dib</a>
+model as I
+wrote the
+<a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut_-_Animations.html">Animations</a>
+section and everything after it. Dib is an extremely complex
+model with many segments, making it an ideal model to demonstrate the
+process
+I use when building a <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> PPM. I figure that if I can accurately
+explain
+my process with Dib as my example, following my tutorial to build a
+simpler
+model should be a piece of cake. I used to flip normals with a pirated
+copy of 3DSMax I once owned, and then do the rest of the optimizing in <a href="http://www.xs4all.nl/%7Erenep/quakeme/" target="_top">Quake
+Model Editor</a>.
+However, I've recently discovered how to do the optimization
+fairly easily in QME alone. Here's my current method of flipping
+normals
+in QME.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; In any
+polygon-based 3D modeling program
+such
+as Quake Model Editor, (as opposed to a spline-based program like <a href="http://www.hash.com/" target="_top">Animation:
+Master</a>,) a
+polygon is a three or four
+sided flat shape. In QME and Quake 2,
+all polys have exactly three sides. The sides of a polygon are called
+edges,
+and the corners are called verts. A single-sided polygon has only one
+solid
+surface, and is only visible when viewed from that surface; if you were
+to try to look at the polygon from the opposite side (the backface), it
+would be invisible. A polygon's normal is an indicator of which surface
+is solid, and when that normal is flipped, the other side of the poly
+will
+become solid while the original side will become invisible. In order to
+show the model with both surfaces of its polygons showing, activate
+Draw
+Backfaces by going to the Options menu, and the 3D view, Draw
+Backfaces.
+Or, you can just press D on the keyboard. One drawback about QME is
+that
+it doesn't allow you to select a poly by clicking on its backface, even
+when Draw Backface mode is activated. 3DSMax could do this, which is
+why
+I used it to flip my models' normals.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Since QME has a
+rather dark color scheme,
+it
+may help to change the colors to make it easier to work. Go to the
+Options
+menu, then select Configure. Click on the Colors tab, and you should
+see
+a list with a bunch of colored squares in it. I find it helpful to make
+the 3D Background white, the 3D Face bright green, and both Face
+Selections
+bright yellow. Switching from the default black 3D background will help
+you tell the difference between the background and particularly dark
+polys.
+Just be sure not to make the 3D Wireframe or the 3D Face the same color
+as the 3D Background, because that would of course, make your model
+invisible.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Dark.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Dark.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - 3D Dark" hspace="3" vspace="3"></a>QME's
+default color settings can be confusing to work with. When the brown
+polygons
+are viewed at certain angles, it can be difficult to tell them appart
+from
+the black 3D background.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Config_Colors.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Config_Colors.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Config Colors" hspace="3" vspace="3"></a>In
+order to change to color settings, go to the Options menu, and then to
+Configure. Click on the Colors tab, and in this screen, you can easily
+configure the colors of QME.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Light.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Light.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - 3D Light" hspace="3" vspace="3"></a>It's
+a good idea to select a color scheme that provides maximum contrast
+between
+the background and the darker polygons. Bright green against a white
+background
+works really well.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Make sure you're
+in Face mode when
+flipping
+your model's normals. You can switch to this mode by clicking the Face
+button on the lower-left corner of the screen. The easiest way to flip
+the normals in your mesh is to work on it one section at a time. In
+order
+to do this, you must have only the section you're working on visible,
+while
+everything else is hidden. When isolating a single group, I find it
+easier
+to display the 3D view in Wireframe mode (Options menu, 3D View,
+Wireframe),
+and to activate Draw Backfaces. To select polygons, click on any tab in
+the upper-left corner of the screen except for C, and click the Select
+button. To select individual polys, simply click on any polys you want
+to select, and if you want to de-select a poly, click on it while
+holding
+the Alt key. To select a group of polys, click and drag within one of
+the
+viewpoint windows to draw a box. Any polys that have at least one of
+their
+verts inside the box will be selected. To de-select all polygons, press
+the / key.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Remember, you have
+to click the Pan Views
+button
+every time you want to adjust the camera view, and click Select again
+to
+go back to selecting polys. In order to hide certain polys from view,
+click
+on the V tab. You will see three buttons, Hide Selected, Hide UnSel,
+and
+Unhide All. These buttons are self explanatory; Hide Selected will make
+all currently selected polygons disappear, Hide UnSel will hide all
+non-selected
+polys, and Unhide All will make all polys visible again. When a polygon
+is hidden, it's not really gone, just invisible. There are two ways to
+isolate a group of polys. You can select all of the polys in the group
+and click Hide UnSel, or you can select everything else and click Hide
+Selected. This is not always as easy as it sounds; some groups are
+partially
+buried inside of other groups, especially in the case of segmented
+models.
+Other groups can be completely buried inside the model, and only pop
+out
+on frames in which they're needed. If I come across a particularly
+difficult
+group to isolate, I select the parts of the model that surround the
+group
+while the entire model fits into one of the viewpoints. I do this by
+drawing
+a box around these parts, being careful not to select any polys of the
+group I want to isolate. I often use more than one view when making my
+selections. I then click Hide Selected, which will leave only my target
+group, plus the polys which are more difficult to get to. In order to
+select
+these, I zoom in extremely close to them, and draw a box around just
+one
+corner of each currently unwanted poly, making sure I don't catch the
+corners
+of any polys I want to remain visible. When only the group I want to
+modify
+is unselected, I click Hide Selected again. Sometimes, it helps to
+change
+frames to make the selection of certain polygons easier.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Wireframe.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Wireframe.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - 3D Wireframe" hspace="3" vspace="3"></a>When
+isolating a group of polygons, I find it easier to display the 3D view
+in Wireframe Mode.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Isolation 1" hspace="3" vspace="3"></a>Isolating
+a group of polys is often tricky when they're partially or fully buried
+within the mesh. In this example, I will isolate Dib's eyeballs so that
+only they are visible.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Isolation 2" hspace="3" vspace="3"></a>Select
+the polys that surround the eyes by drawing boxes around them. Make
+sure
+you don't select any of the polys of the eyes. Don't worry about the
+polys
+that are very close to or touching the eyes right now.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Isolation 3" hspace="3" vspace="3"></a>Push
+the Hide Selected button under the V tab in order to hide the polygons
+you selected.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation04.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Isolation 4" hspace="3" vspace="3"></a>In
+order to hide the more difficult polys, zoom in very close to them, and
+select the by drawing boxes around their corners.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation05.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Isolation05.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Isolation 5" hspace="3" vspace="3"></a>Push
+Hide Selected again to hide the selected polys, leaving only the eyes
+visible.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Once you have
+hidden everything except
+for the
+section of the model you want to work on, check the section to see if
+any
+of its normals need to be flipped. In order to make your work easier,
+display
+the model in Flat Shaded mode (Options menu, 3D view, Flat Shaded). A
+good
+way to check your normal orientation is by using the Draw Backfaces
+option.
+If the exterior of the model looks the same with the backfaces drawn
+than
+without, that usually means the model's normals are facing the right
+way.
+Another way to check is to zoom inside the model with Draw Backfaces
+turned
+off. If you see any polys that should be facing outward, then they may
+not be seen from the outside. While still inside the model, click on
+all
+of the polys you can see on all sides to select them. Then, go outside
+of the model and press the D key to see the backfaces. If the selected
+polys only appear when the backfaces are shown, they are facing the
+wrong
+way and need to be flipped. In order to flip your polys' normals, click
+the M tab to expose a button labeled "Flip Normals". With the Select
+button
+activated, select the polys you want to reverse, and then click Flip
+Normals.
+When all of the polys in the section are oriented correctly, go back to
+the V tab and click UnHide All to make your whole model visible again.
+Continue to flip your model's normals section by section until all
+normals
+are facing the right way. Mercifully, the normal orientation is
+universal
+for all the frames in your md2, so correcting the normals in one frame
+will do so for all of them.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Flat_Shaded.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/3D_Flat_Shaded.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - 3D Flat Shaded" hspace="3" vspace="3"></a>When
+flipping the normals of a group of polygons, I find it easier to
+display
+the 3D view in Flat Shaded Mode.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 1" hspace="3" vspace="3"></a>In
+this example, I will work on Dib's basic head, and make sure its
+polygons'
+normals are facing the right way.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 2" hspace="3" vspace="3"></a>First,
+I check to see if the normals are correct by looking at the head as I
+turn
+Draw Backfaces on and off. When DB is off, some of the polys disappear.
+This tells me that the invisible polys are facing inward and must be
+flipped
+over.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 3" hspace="3" vspace="3"></a>Because
+QME doesn't allow you to select polys from their backfaces, you must
+get
+on their other side. The best way to do this is to zoom inside the
+model.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix04.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 4" hspace="3" vspace="3"></a>If
+Draw Backfaces is turned off, as long as you're zoomed inside the
+model,
+you should see only the polys which are facing the wrong way.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix05.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix05.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 5" hspace="3" vspace="3"></a>With
+Draw Backfaces turned off, individually select all polys you see. You
+can
+also select inward facing polys from the outside through the holes in
+the
+head.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix06.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix06.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 6" hspace="3" vspace="3"></a>Flip
+the normals of all the hidden polys, and de-select them.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix07.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Head_Fix07.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Head Fix 7" hspace="3" vspace="3"></a>If
+you can still see polys while zoomed into the model's head, select them
+individually and zoom out. De-select any polys you can see from the
+outside.
+Flip normals.</font>
+</p>
+<center>
+<hr width="100%">
+<p style="font-family: Press Start K; color: white; text-decoration: underline;"><font size="-2"><b>Double-Sided Polygons</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Sometimes, a
+section will need to have
+both
+of its surfaces solid in order to show up correctly. This is usually
+the
+case if your model has any paper-thin sections, such as a cape. As you
+should know by now, if your model's cape is built with only with single
+sided polys, it would appear to be perfectly normal from the back, but
+appear to have a large section missing when viewed from the front,
+assuming
+it's visible at all from this angle. In order to make both sides of a
+thin
+section visible, you will have to build new polys over the backfaces of
+the old ones. Before you begin, it may be a good idea to isolate the
+polys
+you want to work on by hiding the rest of your model.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; When creating
+backfaces for your model,
+you
+must click the C tab on the upper-left corner of the screen. This
+should
+expose four buttons, including Build Face. Also, it helps if you view
+the
+model in Wireframe mode. To build a backface on the other side of an
+already
+existing face, make sure Draw Backfaces is turned off, and click the
+Build
+Face button. This should cause the cursor to change. Then click on one
+of the verts of the backface you want to build, then click the other
+two
+verts in a counter-clockwise motion. Make sure there are no un-hidden
+verts
+behind the ones you're selecting, because you may accidently select
+those
+instead. If the blue line that appears after you click the first vert
+looks
+like its not anchored to the vert, right-click to cancel the building
+of
+the face, and try again. If you were to click the verts going
+clockwise,
+a face would be built on the side you're facing, so that you'd have two
+faces on the same side of a poly, and this would never do you any good.
+To check if the backface was built, click Pan Views and rotate the
+camera
+to the other side of the polygon, making sure Draw Backfaces is still
+off.
+If you see the backface from this side, and it's attatched to the same
+verts as its counterpart on the other side, the backface was built
+successfully.
+If the new poly is not connected correctly or is backwards, simply hit
+the delete key to get rid of it. When asked to delete any isolated
+verts,
+answer yes. If you run into a poly that consistantly attatches to the
+wrong
+verts, delete the polygon, zoom in close and try again, and if the
+problem
+still persists, try changing the camera angle a little bit. Keep
+building
+the section's backfaces in this manner until they're all in place.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 1" hspace="3" vspace="3"></a>Because
+polygons have only one solid side, any paper thin portion of your
+model,
+such as a cape or a flag, will be visible from only one side.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 2" hspace="3" vspace="3"></a>The
+other side of the thin section will either be invisible, or appear to
+have
+a large section missing.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 3" hspace="3" vspace="3"></a>It
+may be a good idea to isolate the section you will be working on before
+drawing the backfaces.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix04.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 4" hspace="3" vspace="3"></a>In
+the 3D view, with Draw Backfaces on, pan the camera so you're facing
+the
+front faces of the section you're working on. If possible, pan the
+camera
+so that there aren't any verts behind the ones you're working on, in
+order
+to avoid selecting the wrong verts.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/C_Tab_Build_Face.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/C_Tab_Build_Face.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - C Tab - Build Face" hspace="3" vspace="3"></a>To
+make the other side solid as well, go into Create Mode, and click the
+Build
+Face button. This should cause the cursor to change. Also, go into
+Wireframe
+Mode to make selecting the verts easier, and turn off Draw Backfaces.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix05.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix05.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 5" hspace="3" vspace="3"></a>To
+build a face that faces the opposite way of the face you're looking at,
+click on one of the face's verts. A blue line should appear that's
+attached
+to the vert you just clicked on.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix06.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix06.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 6" hspace="3" vspace="3"></a>If
+the blue line does not appear to be anchored to the vert you clicked,
+right-click
+to cancel the face build. Pan the camera to view the vert from a
+different
+angle, then try building the face again.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix07.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix07.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 7" hspace="3" vspace="3"></a>Click
+the other two verts of the new face in a counter-clockwise pattern. A
+new
+face should appear on the opposite side. Pan around to the other side
+to
+see it.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix08.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix08.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 8" hspace="3" vspace="3"></a>If
+the new face looks like it's not attached to the right verts, delete it
+and try building it again from the different camera angle.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix09.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Coat_Fix09.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Coat Fix 9" hspace="3" vspace="3"></a>Once
+the face is on correctly, build the backfaces for the rest of the
+section.</font>
+</p>
+<hr width="100%">
+<center style="font-family: Press Start K; color: white; text-decoration: underline;">
+<p><font size="-2"><b>Mesh Holes And
+Extra Polys</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; After you are sure
+that all of you
+model's polygons
+are facing the right way, and all your desired backfaces have been
+built,
+it's time to do the final steps of your model's optimization. If there
+are still holes in your model where there shouldn't be any, you can
+patch
+them up by building new faces over them. Click on the C tab to access
+the
+Create Panel. Go into Wireframe mode, and zoom in on your model's
+unwanted
+hole, making sure you're on the side where you want the patch to be
+visible.
+Click on the Build Face button, and then click the three verts which
+immediately
+surround the hole in a clock-wise motion. Go into Flat Shaded mode and
+check to see if the hole was patched properly. If not, delete the new
+polygon,
+hide whatever polys are behind the hole, then try again.</font>
+</p>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><img src="http://creamyg.jdluke.com/Long_H_Line.gif" nosave="" style="width: 500px; height: 10px;" alt=""></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; When you build a
+model in <a href="http://www.hash.com/" target="_top">Animation:
+Master</a> and
+then export it to a polygon based format, there are likely to be a
+number
+of unwanted extra polys buried within the model. These polys do not
+show
+up in any of your model's animation frames, and needlessly add to your
+model's polygon count. In all of the <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> PPMs I've worked on, I've always
+seen the most extra polys within the head and hands. In order to get
+rid
+of them, isolate a section of the model, and hide everything else in
+the
+same way as we've been doing before. Go into Flat Shaded mode and turn
+off Draw Backfaces. Also, make sure you're in Faces Mode, and that all
+polys are unselected. Then, click on each poly of the group, selecting
+all the visible polys one at a time. Click on the V tab if you're not
+already
+in the V panel, then click on Hide Selected. All visible faces should
+disappear,
+revealing any hidden poly within. If the are hidden polys, select them
+all by drawing a box around them, but don't delete them just yet. Click
+on UnHide All to make the entire model visible again. Use the
+horizontal
+scroll bar at the bottom of the screen to cycle through your
+animations,
+and thoroughly check to see if any of the selected polys is an actual
+useful
+poly (not just a thin line and not just bleeding through another
+polygon).
+Exclude any such polys from your selection by holding down the Alt key
+and clicking the poly. Once the only polys that are selected are the
+useless
+buried ones, press the delete key, answer "Yes" when asked to delete
+selected
+verts, and answer "Yes" when asked to delete any isolated verts. Repeat
+the procedure for the rest of your model until you get rid of all
+unwanted
+polygons.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix01.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix01.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Hand Fix 1" hspace="3" vspace="3"></a>To
+remove hidden and unwanted polygons from a section of your mesh, it's a
+good idea to isolate it first as described above.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix02.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix02.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Hand Fix 2" hspace="3" vspace="3"></a>Set
+the 3D view to Flat Shaded and turn off Draw Backfaces. Go into Face
+Mode
+and select all visible polygons of the section. It helps to change
+frames
+to get to polys which are only visible in certain frames.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix03.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix03.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Hand Fix 3" hspace="3" vspace="3"></a>Hide
+the selected polygons. If any polys are still visible, they are
+probably
+undesirable polys which are completely useless.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix04.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix04.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Hand Fix 4" hspace="3" vspace="3"></a>In
+order to verify that the polys still visible are actually wasted polys,
+select them all by drawing a box around them. Unhide all polys, and
+make
+sure none of the selected polys are visible on any frame.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix05.gif"><img src="http://creamyg.jdluke.com/Games/Quake2/Model_Tut/Pics/Hand_Fix05.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="QME - Hand Fix 5" hspace="3" vspace="3"></a>If
+the polys only appear as dotted seam lines, or as polys that appear
+un-naturally
+within other others, delete them.</font>
+</p>
+<hr width="100%">
+<center>
+<center style="color: white; font-family: Lucida Console;">
+<center>
+<p><font size="-2"><a href="http://creamyg.jdluke.com/" target="_top"><img style="border: 2px solid ; width: 120px; height: 30px;" src="http://creamyg.jdluke.com/LFM/LFM_-_Creamy%27s_Wonderland.gif" nosave="" alt="Creamy's Wonderland - Front Page" hspace="2" vspace="2"></a><a href="http://creamyg.jdluke.com/Games/Games_-_Main_Page%28fs%29.html" target="_top"><img src="http://creamyg.jdluke.com/LFM/LFM_-_Games.gif" nosave="" style="border: 2px solid ; width: 120px; height: 20px;" alt="Games" hspace="2" vspace="2"></a><a href="http://creamyg.jdluke.com/Games/Quake2/Games_-_Quake2%28fs%29.html" target="_top"><img src="http://creamyg.jdluke.com/LFM/Games_-_Quake2.gif" nosave="" style="border: 1px solid ; width: 120px; height: 10px;" alt="Quake 2" hspace="2" vspace="2"></a></font><font style="font-family: Lucida Console; color: black;" size="-2">_</font><a href="http://creamyg.jdluke.com/Games/Quake2/Model_Tut%28fs%29.html" target="_top"><font style="font-family: Lucida Console;" size="-2">Modeling Tutorial</font></a><font size="-2"><span style="color: black;">_</span>|<span style="color: black;">_</span>Optimization</font></p>
+</center>
+</center>
+</center>
+</body></html>

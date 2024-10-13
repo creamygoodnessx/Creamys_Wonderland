@@ -1,0 +1,332 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.8 [en] (Win98; U) [Netscape]">
+   <title>Jatoten Rascot's Quake2 modeling tutorial</title>
+</head>
+<body text="#FF8080" bgcolor="#000000" link="#33FF33" vlink="#660000" alink="#FFFF00">
+
+<center><IFRAME SRC="http://ads.gamespy.com/hserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=468 HEIGHT=60><script SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"></script>
+<noscript><a href="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"><img SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NOSAVE height=40 width=40></a></noscript></IFRAME>
+<p>
+<hr WIDTH="100%">
+<p><font color="#00FF80"><font size=+2>My Quake2 Modeling Tutorial:</font></font>
+<br><u><font color="#00FF80"><font size=+2>Step 2: Animations</font></font></u></center>
+
+<p>> After your model's mesh is completed, and the bones are correctly
+applied, the next step is to animate the model for use in the game. A fully
+animated Quake2 plugin player model has 20 different animations. Each of
+the model's animations should be created in it's own Action, and have the
+correct number of frames. Once all 20 animations are completed, you can
+then complile them in a single choreography.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>FRAMES LIST</b></center>
+
+<p>> A Quake2 plugin player model consists of 20 individual animations
+which have a total of exactly 198 frames. Each animation has its own number
+of frames, ranging from 4 to 40. Some of the animations loop, so that they
+look like a continuous and unbroken animation when played repeatedly. When
+animating a PPM, it is mandatory that each animation consists of the correct
+number of frames, and loops where appropriate. In order to help you along,
+you can follow the <font color="#33FF33">Frames List</font> on Polycount.
+If you for some reson you can't access the list, or have trouble following
+it, you can use my version of the list below...
+<br>&nbsp;
+<br>&nbsp;
+<center><table BORDER WIDTH="100%" >
+<caption><font size=+1>Jason "Creamy Goodness" Tenn's Quake2 Frames List</font></caption>
+
+<tr BGCOLOR="#33FF33">
+<td><font color="#000000">Animation</font></td>
+
+<td><font color="#000000"># of Frames</font></td>
+
+<td><font color="#000000">Description</font></td>
+
+<td><font color="#000000">Loops?</font></td>
+</tr>
+
+<tr BGCOLOR="#000000">
+<td><font color="#33FF33">Stand</font></td>
+
+<td><font color="#33FF33">40</font></td>
+
+<td><font color="#33FF33">The Stand animation is the one that is most likely
+going to be seen more than any other animation, and therefore must be of
+especially high quality. At 40 frames, it is by far the longest of the
+animations, taking up over a fifth of the PPM's total frames. A character
+going through the Stand is most likely to be looking around. However, the
+animation can also be in the form of a fighting stance, or whatever else
+you can think of. You can be very creative with Stand by adding a few extras,
+such as having your character cock the gun, crack his/her knuckles, or
+scratch his/her head, but don't go for anything too flashy. Since Stand
+is very commonly seen, it can get old quickly, and I recommend that you
+save the true pizzaz for the less common animations. Stand is one of the
+four looping animations, which means its final frames should show the character
+smoothly returning to his/her state in the first frame.</font></td>
+
+<td><font color="#33FF33">Yes</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Run</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">Yes</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Attack</font></td>
+
+<td><font color="#33FF33">8</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Pain1</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Pain2</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr BGCOLOR="#006600">
+<td><font color="#33FF33">Pain3</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Jump</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Flipoff</font></td>
+
+<td><font color="#33FF33">12</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Salute</font></td>
+
+<td><font color="#33FF33">11</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Taunt</font></td>
+
+<td><font color="#33FF33">17</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Wave</font></td>
+
+<td><font color="#33FF33">11</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Point</font></td>
+
+<td><font color="#33FF33">12</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Stand</font></td>
+
+<td><font color="#33FF33">19</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">Yes</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Walk</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">Yes</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Attack</font></td>
+
+<td><font color="#33FF33">9</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Pain</font></td>
+
+<td><font color="#33FF33">4</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Crouch Death</font></td>
+
+<td><font color="#33FF33">5</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Death1</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Death2</font></td>
+
+<td><font color="#33FF33">6</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+
+<tr>
+<td><font color="#33FF33">Death3</font></td>
+
+<td><font color="#33FF33">8</font></td>
+
+<td></td>
+
+<td><font color="#33FF33">No</font></td>
+</tr>
+</table></center>
+
+<p>
+<hr WIDTH="100%">
+<center>
+<p><b>LOOPING</b></center>
+
+<p>> Aa any proficient animatior knows, looping is when an animations runs
+over and over again, A successful looping animation has its last frames
+blend smoothly into its first frame, so you can't tell exactly where the
+animation begins and ends. The Stand, Run, Crouch Stand, and Crouch Walk
+animations all loop. In order to create an animation that loops smoothly,
+simply follow these steps...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif" NOSAVE BORDER=2 height=100 width=100></a>Create
+your animation normally, until you get to the final keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif" NOSAVE BORDER=2 height=100 width=100></a>Go
+to the first keyframe, and while in Key Model Mode, copy the frame to the
+clipboard.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif" NOSAVE BORDER=2 height=100 width=100></a>In
+the ?? box, enter a number that is one frame higher than the intended number
+of frames in your animation.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif" NOSAVE BORDER=2 height=100 width=100></a>Making
+sure you're still in Key Model Mode, paste the first frame of your model
+into your new keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif" NOSAVE BORDER=2 height=100 width=100></a>While
+still in Key Model Mode, make the second to last frame in your animation
+a keyframe.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+the last frame in the animation (the frame you copied from the first frame).
+Your animation will now loop smoothly.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>DUAL PURPOSE ANIMATIONS</b></center>
+
+<p>> If there is a hole where there should logically be a patch, delete
+a spline of the missing patch. Use the Add Lock feature to create separate
+a spline with four control points. Attach the second control point of this
+line to a CP of the spline you deleted, and the third to the other deleted
+CP. This should cause the patch to appear properly. You can now delete
+the first and fourth CP of your new spline. I have Strykerwolf at Polycount
+to thank for this method.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif" NOSAVE BORDER=2 height=100 width=100></a>Sometimes,
+there will be a seemingly valid patch that just doesn't exist.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+one of the splines of the uncooperative non-patch.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif" NOSAVE BORDER=2 height=100 width=100></a>Create
+a new spline with four control points.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif" NOSAVE BORDER=2 height=100 width=100></a>Attach
+the second CP of the spline to one of the CPs of the spline you previously
+deleted...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif" NOSAVE BORDER=2 height=100 width=100></a>...and
+the third CP to the other deleted CP. This should cause the patch to work
+properly.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+the now unnecessary first and fourth control points of the temporary spline.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>COLLECTIVE CHOREOGRAPHY</b></center>
+
+<p>>
+<p>
+<hr WIDTH="100%">
+<center>
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/JRascot_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-title.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=80 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Quake2_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-Quake2.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=50 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Tutorial_Page(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/Quake2-Tutorial.gif" HSPACE=1 VSPACE=1 NOSAVE BORDER=1 height=25 width=100></a><font face="Nosfer"><font color="#FFFFFF">
+Animations</font></font></center>
+
+</body>
+</html>

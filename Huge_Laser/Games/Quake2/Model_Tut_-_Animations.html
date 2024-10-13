@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<script><endnote><head>
+<script></script>
+<meta content="text/html;charset=ISO-8859-1" http-equiv="Content-Type"><title>Creamy's Quake2 PPM Modeling Tutorial - Step 2:Animations</title>
+
+</head>
+<body style="color: rgb(255, 128, 128); background-color: rgb(0, 0, 0);" alink="#ffff00" link="#33ff33" vlink="#660000">
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3246876018000001";
+/* CreamyG Leaderboard */
+google_ad_slot = "1496340515";
+google_ad_width = 728;
+google_ad_height = 90;
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<hr width="100%">
+<p style="text-align: center; font-family: Press Start K; color: rgb(0, 255, 128);"><font size="+1">My Quake 2
+Modeling Tutorial:<br>
+Step 2:
+Animations</font>
+</p>
+</center>
+<font style="font-family: Press Start K; color: white;" face="SpaceOne" size="-2">&gt; After your model's
+mesh is completed, and
+the
+bones are correctly applied, the next step is to animate the model for
+use in the game. A fully animated </font><font size="-2"><span style="font-family: Press Start K; color: white;">Quake 2
+plugin player model has 20
+different
+animations. Each of the model's animations should be created in it's
+own
+Action, and have the correct number of frames. Once all 20 animations
+are
+completed, you can then compile them in a single choreography.</span></font>
+<center>
+<hr width="100%">
+<p style="font-family: Press Start K; color: white; text-decoration: underline;"><font size="-2"><b>Frames List</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; A <a href="http://planetquake.gamespy.com/quake2/" target="_top">Quake
+2</a> plugin player model consists of
+20
+individual animations which have a total of exactly 198 frames. Each
+animation
+has its own number of frames, ranging from 4 to 40. Some of the
+animations
+loop, so that they look like a continuous and unbroken animation when
+played
+repeatedly. When animating a PPM, it is mandatory that each animation
+consists
+of the correct number of frames, and loops where appropriate. In order
+to help you along, you can follow the Frames
+List&nbsp;below.
+There was once such a list on&nbsp;<a href="http://polycount.com/" target="_top">Polycount</a>,
+but that one has been down for several
+years.</font></p>
+<center>
+<p style="text-align: center;"><font size="-2"><img src="http://creamyg.hugelaser.com/Short_H_Line.gif" nosave="" style="width: 100px; height: 4px;" alt=""></font></p>
+</center>
+<center>
+<table border="1" width="100%">
+<caption style="font-family: Press Start K; color: white; text-decoration: underline;"><font size="-2"><u>Jason
+"Creamy
+Goodness" Tenn's Quake 2 Frames List</u></font></caption> <tbody>
+<tr bgcolor="#33ff33">
+<td style="font-family: Press Start K;"><font color="#000000" size="-2">Animation</font></td>
+<td style="font-family: Press Start K;"><font color="#000000" size="-2"># of Frames</font></td>
+<td style="font-family: Press Start K;"><font color="#000000" size="-2">Description</font></td>
+<td style="font-family: Press Start K;"><font color="#000000" size="-2">Type</font></td>
+</tr>
+<tr bgcolor="#000000">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Stand</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">40</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The Stand
+animation is
+the one that is most likely going to be seen more than any other
+animation,
+and therefore must be of especially high quality. At 40 frames, it is
+by
+far the longest of the animations, taking up over a fifth of the PPM's
+total frames. A character going through the Stand is most likely to be
+looking around. However, the animation can also be in the form of a
+fighting
+stance, or whatever else you can think of. You can be very creative
+with
+Stand by adding a few extras, such as having your character cock the
+gun,
+crack his/her knuckles, or scratch his/her head, but don't go for
+anything
+too flashy. Since Stand is very commonly seen, it can get old quickly,
+and I recommend that you save the true pizzazz for the less common
+animations.
+Stand is one of the four looping animations, which means its final
+frames
+should show the character smoothly returning to his/her state in the
+first
+frame.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Loop</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Run</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">6</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Another looping
+animation,
+the Run plays while the character moves about the arena of death. The
+Run
+is a six frame animation that typically involves the first three frames
+dealing with one leg hitting the ground, while the other three frames
+are
+a mirror image of the first three. While making this animation, it's
+important
+to avoid "skating", or when your model's feet slide unnaturally along
+the
+floor when they're supposed to be planted in one place. After I finish
+the run animation for my models, I go to both the left or right view
+and
+the front or back view of my model, and zoom in on the planted foot in
+both views. I then run the animation one frame at a time, and adjust
+the
+foot so that it's on the ground in each frame. I then of course repeat
+the process with the other foot.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Loop</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Attack</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">8</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">This is the
+animation you'll
+see when the character fires his/her weapon. The weapon is discharged
+during
+the first frame of the Attack animation. I would recommend having the
+PPM
+in full recoil in the first frame, and then spend the rest of Attack
+recovering
+(returning to the first frame of Stand). Or, you could also put the
+recoil
+in the first frame, then have your character cock the gun quickly
+before
+returning to the first frame of Stand.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Pain1</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">4</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of three
+animations
+played randomly when the character suffers damage.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Pain2</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">4</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of three
+animations
+played randomly when the character suffers damage.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Pain3</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">4</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of three
+animations
+played randomly when the character suffers damage. Also, the Change
+Weapon
+animation is Pain3 played backwards.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Jump</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">6</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The Jump
+animation is shown
+whenever the PPM becomes airborne. During a standard jump, the first
+frame
+shows the model reaching the peak of his/her jump, the second frame
+holds
+as long as the PPM stays in the air, the third frame shows the model
+just
+before the landing, while the last three frames show the landing. The
+second
+frame of Jump is your standard airborne frame and will hold until the
+PPM
+lands. If the PPM falls far enough to take damage, a random Pain
+animation
+will play instead of the last four frames of Jump.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Flipoff</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">12</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of five
+gestures the
+character can make. It's usually used to tell the opposing players to
+fuck
+off.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Salute</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">11</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of five
+gestures the
+character can make. Players can use this gesture as a sign of respect
+for
+their teammates.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Taunt</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">17</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of five
+gestures the
+character can make. It's usually used to tell the opposing players to
+fuck
+off.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Wave</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">11</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of five
+gestures the
+character can make. The Grenade Toss animation is Wave played
+backwards.
+You can opt to dedicate this animation to the Grenade Toss, but it can
+make Wave look awkward when actually used as a wave.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Point</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">12</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">One of five
+gestures the
+character can make. This is when the character points straight ahead.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Crouch Stand</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">19</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">This shows the
+PPM crouching,
+kneeling, or otherwise reducing his/her overall height. I recommend
+keeping
+your PPM at half normal height while using the Crouch
+animations.&nbsp;</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Loop</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Crouch Walk</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">6</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The PPM walks
+while crouching.
+He/she becomes a smaller target, but also moves a lot more slowly than
+he/she would with a standard Run. The Crouch Walk can also take the
+form
+of a crawl.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Loop</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Crouch Attack</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">9</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The PPM fires
+his/her weapon
+while crouching.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Crouch Pain</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">4</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The PPM takes
+damage while
+crouching.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Standard</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Crouch Death</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">5</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The character
+dies while
+crouching. The character starts in his/her crouching position, and ends
+up lying on the ground. There are only five frames in this animation,
+so
+keep it as simple as you can.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death1</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">6</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The character
+starts in
+his/her standing position, and ends up lying on the ground.&nbsp;</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death</font></td>
+</tr>
+<tr>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death2</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">6</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The character
+starts in
+his/her standing position, and ends up lying on the ground.&nbsp;</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death</font></td>
+</tr>
+<tr bgcolor="#006600">
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death3</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">8</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">The character
+starts in
+his/her standing position, and ends up lying on the ground. This
+animation
+consists of slightly more frames than the other Deaths, and allows a
+little
+more flexibility.</font></td>
+<td style="font-family: Press Start K;"><font color="#33ff33" size="-2">Death</font></td>
+</tr>
+</tbody>
+</table>
+</center>
+<center style="font-family: Press Start K; color: white;">
+<p><font size="-2"><span style="text-decoration: underline;">Animation Types</span><br>
+Standard - Begins and ends with the
+first frame
+of Stand or Crouch Stand.
+<br>
+Loop - Runs smoothly in a continuous
+cycle, so
+that the last frames lead up to the first frame.
+<br>
+Death - Begins with the first frame
+of Stand
+or Crouch Stand, but ends with the model's final, dead position.</font>
+</p>
+</center>
+<hr width="100%">
+<center style="font-family: Press Start K; color: white; text-decoration: underline;">
+<p><font size="-2"><b>Looping</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Aa any proficient
+animatior knows,
+looping is
+when an animation runs over and over again, A successful looping
+animation
+has its last frames blend smoothly into its first frame, so you can't
+tell
+exactly where the animation begins and ends. The Stand, Run, Crouch
+Stand,
+and Crouch Walk animations all loop. In order to create an animation
+that
+loops smoothly, simply follow these steps...</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_1.gif"><img alt="Animation Loop 1" title="" style="border: 2px solid ; height: 100px; width: 100px;" nosave="" src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_1.gif" hspace="3" vspace="3"></a>Create
+your animation normally, until you get to the final keyframe.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_2.gif"><img alt="Animation Loop 2" title="" style="border: 2px solid ; height: 100px; width: 100px;" nosave="" src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_2.gif" hspace="3" vspace="3"></a>Go
+to the first keyframe, and while in Key Model Mode&nbsp;<img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/KMM.gif" nosave="" style="border: 0px solid ; height: 24px; width: 24px;" title="" alt="">,
+copy the frame to the clipboard.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_3.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_3.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Animation Loop 3" hspace="3" vspace="3"></a>In
+the frame number text box, enter a number that is one frame higher than
+the intended number of frames in your animation.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_4.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_4.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Animation Loop 4" hspace="3" vspace="3"></a>Making
+sure you're still in Key Model Mode, paste the first frame of your
+model
+into your new keyframe.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_5.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_5.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Animation Loop 5" hspace="3" vspace="3"></a>While
+still in Key Model Mode, make the second-to-last frame in your
+animation
+a keyframe.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_6.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_6.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Animation Loop 6" hspace="3" vspace="3"></a>Delete
+the last frame in the animation (the frame you copied from the first
+frame).
+Your animation will now loop smoothly.</font>
+</p>
+<center>
+<hr width="100%">
+<p style="font-family: Press Start K; color: white; text-decoration: underline;"><font size="-2"><b>Dual Purpose Animations</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; The Grenade Toss
+and Change Weapon
+animations
+are not officially included in the frames list. Instead, the grenade
+toss
+is Wave played backwards, while Change Weapon is Pain3 played
+backwards.
+If you want to create your PPM to specifically take advantage of the
+Genade
+Toss animation, simply create an Action for GT, animate it as usual
+(making
+sure GT has exactly 11 frames, of course), then reverse the keyframes,
+so that the animation runs backwards. Here's my method of reversing the
+frames in an animation...</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_07.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_07.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dual Purpose Animations 1" hspace="3" vspace="3"></a>After
+completing the Grenade Toss animation, create a new Action, and
+position
+its window next to one of the windows of your Grenade Toss animation.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_08.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_08.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dual Purpose Animations 2" hspace="3" vspace="3"></a>While
+in Key Model Mode&nbsp;<img src="http://www.planetquake.com/polycount/cottages/iwow/Games/Quake2/Model_Tut/KMM.gif" nosave="" border="0" height="24" width="24">,
+copy the last keyframe of the Grenade Toss. Paste it onto the new
+action's
+first frame.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_09.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_09.gif" nosave="" style="border: 2px solid ; width: 100px; height: 100px;" alt="Dual Purpose Animations 3" hspace="3" vspace="3"></a>While
+on the last frame of the Grenade Toss and in Key Model Mode, press the
+Previous Keyframe button<img src="http://www.planetquake.com/polycount/cottages/iwow/Games/Quake2/Model_Tut/PrevKey.gif" nosave="" border="0" height="24" width="24">
+once to get to the second-to-last keyframe. Note the difference between
+the two frame numbers, and copy the second-to-last keyframe. In this
+case,
+the difference is 1 frame.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_10.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_10.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dual Purpose Animations 4" hspace="3" vspace="3"></a>Add
+the difference between the last and second-to-last keyframe of the
+Grenade
+Toss to the number of the current keyframe in the new action, which in
+this case will be 1. While on the first frame of the new action, enter
+the sum in the frame number text box. In this case, there is one frame
+between the last and second-to-last keyframe of the Grenade Toss, and
+the
+new action is currently on frame one, so adding one frame will bring us
+to frame two, meaning we enter "2" in the frame number text box. Paste
+the second-to-last keyframe of the Grenade Toss to this frame of the
+new
+action.
+<br>
+&nbsp;
+</font></p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_11.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_11.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dual Purpose Animations 5" hspace="3" vspace="3"></a>While
+on the second-to-last keyframe of the Grenade Toss and in Key Model
+Mode,
+press the Previous Keyframe button once to get to the third-to-last
+keyframe,
+and copy the keyframe. Note the difference between the two keyframes,
+which
+in this case is also 1 frame.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2"><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_12.gif"><img src="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut/Pics/Tut2_12.gif" nosave="" style="border: 2px solid ; height: 100px; width: 100px;" title="" alt="Dual Purpose Animations 6" hspace="3" vspace="3"></a>Add
+the difference between the second-to-last keyframe and third-to-last
+keyframe
+of the Grenade Toss to the number of the current keyframe in the new
+action,
+which in this case will be 2. Enter the sum in the frame number text
+box,
+then paste the keyframe to the new frame of the new action. Repeat
+until
+the new animation is a reversed version of the Grenade Toss. If the new
+animation has exactly 11 frames, then you've done everything right.</font>
+</p>
+<hr width="100%">
+<center style="font-family: Press Start K; color: white; text-decoration: underline;">
+<p><font size="-2"><b>Collective Choreography</b></font></p>
+</center>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Once all 20 of
+your PPM's animations are
+finished,
+the next step is to compile them into a single choreography. Start a
+new
+choreography and apply your model to it. Import your PPM's Actions to
+the
+model in the choreography one by one. You must import the Actions in
+the
+exact order of the frames table. (First Stand, then Run, then Attack,
+etc.)
+If you've imported all of the Actions and realize that one or more is
+out
+of order, you'll have to delete the choreography, and re-import all off
+the actions again in the right order. If the first errant Action is far
+down on the list, you could delete that Action and all below it, then
+re-import
+the errant Action and then all the ones after it in order.</font>
+</p>
+<p style="font-family: Press Start K; color: white;"><font size="-2">&gt; Check the
+choreography to see if it has
+exactly
+198 frames from the first frame of Stand, to the last frame of Death3.
+If there are more than 198 frames, either some of your Actions have
+extra
+frames, or you accidentally imported an Action twice. If there are less
+than 198 frames, some of your Actions may have too few frames, or you
+may
+have forgotten to include an Action or two in your choreography. And of
+course, remember to save your choreography.</font>
+</p>
+<hr width="100%">
+<center>
+<center style="color: white; font-family: Lucida Console;">
+<center>
+<p><font size="-2"><a href="http://creamyg.hugelaser.com/" target="_top"><img style="border: 2px solid ; width: 120px; height: 30px;" src="http://creamyg.hugelaser.com/LFM/LFM_-_Creamy%27s_Wonderland.gif" nosave="" alt="Creamy's Wonderland - Front Page" hspace="2" vspace="2"></a><a href="http://creamyg.hugelaser.com/Games/Games_-_Main_Page%28fs%29.html" target="_top"><img src="http://creamyg.hugelaser.com/LFM/LFM_-_Games.gif" nosave="" style="border: 2px solid ; width: 120px; height: 20px;" alt="Games" hspace="2" vspace="2"></a><a href="http://creamyg.hugelaser.com/Games/Quake2/Games_-_Quake2%28fs%29.html" target="_top"><img src="http://creamyg.hugelaser.com/LFM/Games_-_Quake2.gif" nosave="" style="border: 1px solid ; width: 120px; height: 10px;" alt="Quake 2" hspace="2" vspace="2"></a></font><font style="font-family: Lucida Console; color: black;" size="-2">_</font><a href="http://creamyg.hugelaser.com/Games/Quake2/Model_Tut%28fs%29.html" target="_top"><font style="font-family: Lucida Console;" size="-2">Modeling Tutorial</font></a><font size="-2"><span style="color: black;">_</span>|<span style="color: black;">_</span>Animations</font></p>
+</center>
+</center>
+</center>
+</body></html>

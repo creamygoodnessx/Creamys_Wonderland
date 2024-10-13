@@ -1,0 +1,286 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.8 [en] (Win98; U) [Netscape]">
+   <title>Jatoten Rascot's Quake2 modeling tutorial</title>
+</head>
+<body text="#FF8080" bgcolor="#000000" link="#33FF33" vlink="#660000" alink="#FFFF00">
+
+<center><IFRAME SRC="http://ads.gamespy.com/hserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=468 HEIGHT=60><script SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"></script>
+<noscript><a href="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"><img SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NOSAVE height=40 width=40></a></noscript></IFRAME>
+<p>
+<hr WIDTH="100%">
+<p><font color="#00FF80"><font size=+2>My Quake2 Modeling Tutorial:</font></font>
+<br><u><font color="#00FF80"><font size=+2>Step 3: Optimization</font></font></u></center>
+
+<p>> After you finish all 20 of your animations, and are sure that they
+have exactly 198 frames altogether, your next goal is to clean it up a
+bit for use as a Quake2 PPM. This is called optimization, and covers things
+such as making sure your model is the right size, sealing up unwanted holes
+in the mesh, and a few other things
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>CENTER, DIRECTION, &amp; SIZE</b></center>
+
+<p>> The first step of the optimization phase of building your PPM is to
+make sure your model is standing on the right spot, facing the right way,
+and is the right size. In order to do this, we need to compare it to a
+completed Quake2 PPM, and use that as a reference to make the appropriate
+adjustments to your model. Because Animation: Master does not have very
+good import / export support, we can't import a Quake2 PPM in AM, so we
+must export your model to Quake Model Editor. We will save it as a 3ds
+file, because QME also uses this type of model. However, you can't save
+a model as a 3ds until you install the 3dsMax export plugin, which you
+can download <a href="ftp://ftp.hash.com/pub/plugins/ImportExport/Windows/3ds/3ds.hie">here</a>
+from Hash Inc.'s official FTP site. Once you download the plugin, simply
+place it in the IE sub-folder of wherever you installed AM.
+<p>In the Project Workspace window, right click your choreography, then
+pick Export. If Export is not available, clicking on your model first might
+fix this. When giving your model a name in the In the Export Model As window,
+save it as a 3ds file, because QME also uses this type of model. If the
+3ds file type is not available, then you haven't installed the 3dsMax export
+plugin, which you can download <a href="ftp://ftp.hash.com/pub/plugins/ImportExport/Windows/3ds/3ds.hie">here</a>.
+When you click OK,&nbsp; you will see a new window named Export Options.
+Here, you will be given an option called Polygons Per Patch. At this point,
+it won't make too much of a difference which one you choose, because for
+now you're only exporting for comparison purposes. I recomend you pick
+"1", because this will give you the lowest polygon count. Once you click
+OK, you will see yet another window, this one being Frame Range.
+<p>
+<hr WIDTH="100%">
+<p>> While this step does not exactly involve optimizing your model, it
+is an important bridge between two steps that do, and can be long and tedious.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><b>ROTOSCOPES</b></center>
+
+<p>> Whenever you build a complex model, it's a good idea to apply rotoscopes
+as references to whatever you're attempting to model. If you're modelling
+a commercial cartoon character, the best rotoscopes will usually be the
+character's official turnaround model sheet. Such an image can be found
+on the Internet, or from the official artwork book of whatever show or
+movie the character is from (The Making of...). If you can't find any such
+official model sheet, you can improvise by capturing screenshots of the
+character, and use those as your rotoscope. (Of course, you need access
+to a video adapter card or a TV tuner to take screenshots.) This method
+can be tricky, because it's not always easy to tell if an angle is exactly
+the front, profile, or whatever angle you're trying to capture. Even if
+the character is facing the right direction, a slight tilt can throw you
+off when used as a rotoscope. So take several shots of each desired angle,
+taking your best guess as to what the exact front view, profile, and back
+view should look like. As a guide, you can use a turnaround model sheet
+of another character to choose the best screenshots. When applying the
+rotoscopes, make sure all the angles are consistant with each other. (The
+nose on one rotoscope has to be consistent with the nose on the others,
+and so must every other part of the character.)
+<p>> The ideal rotoscopes you can use for modelling a character in 3D are
+full body shots of the exact front, side, back, angles. Sometimes, it may
+be helpful to use a top view of the character, but such an angle is usually
+not included in an offical model sheet, and is by far the most difficult
+find a screenshot of. It's not always possible to find a screenshot of
+turnaround model sheet quality (with the character standing upright, with
+his/her hands to the side, with both legs straight, shot at the exact angle
+desired, and with none of the body cropped out of the shot), but there's
+a way to get around this issue. Here's what I do whan I run into this problem.
+I take screenshots of the head, torso, and legs, and apply them as separate
+rotoscopes. First, I apply the head screenshots as rotoscopes to their
+appropriate angles, then build the head portion of the model. Next, I delete
+the head rotoscopes, then apply those of the torso, then build the model's
+torso. Finally, I follow suit with the legs.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>MISSING PATCHES</b></center>
+
+<p>> If there is a hole where there should logically be a patch, delete
+a spline of the missing patch. Use the Add Lock&nbsp;<img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/AddLock.gif" NOSAVE BORDER=0 height=32 width=32>
+feature to create separate a spline with four control points. Attach the
+second control point of this line to a CP of the spline you deleted, and
+the third to the other deleted CP. This should cause the patch to appear
+properly. You can now delete the first and fourth CP of your new spline.
+I have Strykerwolf at Polycount to thank for this method.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif" NOSAVE BORDER=2 height=100 width=100></a>Sometimes,
+there will be a seemingly valid patch that just doesn't exist.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+one of the splines of the uncooperative non-patch.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif" NOSAVE BORDER=2 height=100 width=100></a>Create
+a new spline with four control points.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif" NOSAVE BORDER=2 height=100 width=100></a>Attach
+the second CP of the spline to one of the CPs of the spline you previously
+deleted...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif" NOSAVE BORDER=2 height=100 width=100></a>...and
+the third CP to the other deleted CP. This should cause the patch to work
+properly.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+the now unnecessary first and fourth control points of the temporary spline.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>CREASE REDUCTION</b></center>
+
+<p>> A major ass itch that 3D animators must face is abnormal creasing
+in their models while animating them. Fortunately, Animation: Master 99
+and all versions following it have a feature called SmartSkin. SmartSkin
+allows you to assign control points to particular locations depending on
+the rotation of certain bones. Here's how it works...
+<p>> During the building of your mesh, make sure you build its joints a
+certain way in order for it&nbsp; to take advantage of SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow.gif" NOSAVE height=100 width=100></a>Your
+model's elbows should each consist of two unconnected rings of splines...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Knee.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Knee.gif" NOSAVE height=100 width=100></a>...while
+the knees should consist of two rings connected at the back of the knees.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow135.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow135.gif" NOSAVE height=100 width=100></a>Here
+is an elbow joint bending at 90 degrees and 135 degrees without the assistance
+of A:M's SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow135.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow135.gif" NOSAVE height=100 width=100></a>This
+is the same elbow bending at the same angles above, but with the aid of
+SmartSkin.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p><font color="#FF8080">> After applying a skeleton to your model, apply
+a SmartSkin to one of your model's bones. Select a bone, right-click it,
+and select 'New SmartSkin'. After selecting an axis in which to apply the
+SmartSkin on, a new window will open, in which your selected bone will
+be bent at a 90 degree angle. In this window, you can manipulate control
+points to suit the angle of the bone with a minimum amount of creasing.
+After the SmartSkin is applied, it will take effect in all of the model's
+animations. Here is a list of the bones and angles I use the SmartSkin
+feature on...</font>
+<center>
+<p><font color="#FF8080">CHEST</font>
+<br><font color="#FF8080">X - -90, 90, 135</font>
+<p><font color="#FF8080">BICEPS</font>
+<br><font color="#FF8080">X - 90</font>
+<p><font color="#FF8080">FOREARMS</font>
+<br><font color="#FF8080">X - 90, 135</font>
+<br><font color="#FF8080">Y - -90, 90</font>
+<p><font color="#FF8080">HANDS</font>
+<br><font color="#FF8080">X - -90, 90</font>
+<br><font color="#FF8080">Y - -90, 90</font>
+<br><font color="#FF8080">Z - -180, -90, 90, 180</font>
+<p><font color="#FF8080">CALVES</font>
+<br><font color="#FF8080">X - 90</font>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p>> In order to make your model's wrist twist properly while your model's
+hands twist, it's a good idea to rotate each ring of splines down the arm
+all the way to the shoulder. (This belongs to the Z-Axis of the hands.)
+This should be done gradually up the arm. It may take you about an hour
+to find the right rotations for each ring of the arm, but patience can
+pay off big time.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist90.gif" NOSAVE height=100 width=100></a>First,
+find the right rotations for the 90 degree mark of the wrist's Z-Axis...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist180.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist180.gif" NOSAVE height=100 width=100></a>...and
+then for 180 degrees...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-180.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-180.gif" NOSAVE height=100 width=100></a>...and
+finally for -90, then -180 degrees respectively.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>EASY EYELIDS</b></center>
+
+<p>> The SmartSkin can be used to conveniently animate certain parts of
+a model where the conventional use of bones isn't practical. For example,
+a model's eyelids can be fitted with a SmartSkin so that they can open
+and close with the simple movement of a bone. In order to make this work,
+a bone must be created for each eyelid. These "eye bones" should be detached
+from the rest of the model's skeleton.
+<p>> Create a new SmartSkin for the Z-axis of one of the eyelid bones,
+and set the axis to 0 degrees. Rotate and translate the eyelid to cover
+the eye completely, so that the eye looks like its closed all the way.
+(Whenever I first model the eyelids, they are in closed position by default.
+So applying their SmartSkin is just a matter of creating a new keyframe
+instead of manipulating the control points. Sometimes, I select the eyelid,
+then press the up key once, then the down key once just to make sure the
+keyframe is created.) Then set the bone's Z-axis to 179 degrees, and manipulate
+the control points of the eyelid so that the lid is turned upward just
+above the eye, and buried completely inside the head. If the SmartSkin
+is applied correctly, turning the Z-axis during one of the model's animations
+should cause the eyelid to open and close; the lower the number of the
+Z-axis, the more closed the eye will be, the higher the number, the more
+open. If you notice any irregular movement of the eyelid, it can probably
+be fixed by setting a half-open value on its Z-axis at 90 degrees. Of course,
+you will have to repeat the entire process on the other eyelid.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_01.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_01.gif" NOSAVE BORDER=2 height=100 width=100></a>The
+blue and pink bones you see, which are parallel with the eyes, are the
+Left and Right Eye Dials, which will control the opening and closing of
+the eyelids. Notice that in the Project Workspace, they are independent
+from the Pelvis tree.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_02.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_02.gif" NOSAVE BORDER=2 height=100 width=100></a>Right
+click on one of the eye dials, and in the this case, it will be the Right
+Eye Dial. Select New SmartSkin, then Z-Rotate. A new window will open.
+This is where you will create the SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_03.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_03.gif" NOSAVE BORDER=2 height=100 width=100></a>The
+number on the frames scroll bar indicates the value of the Z-axis, and
+will start at 90 degrees. Set this value at 0 degrees, and move the control
+points of the right eyelid, so that it covers the eye completely. If the
+control points are already in place, select all the control points for
+the eyelid, then press up on the keyboard once, then down once. This will
+ensure that a keyframe is created for the 0 degree value of the SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_04.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_04.gif" NOSAVE BORDER=2 height=100 width=100></a>Now,
+set the Z-axis to 179, and rotate and translate the eyelid, so that most
+or all of it is buried inside the head, just above the eye. This should
+give the appearance that the eye is open.
+<br>&nbsp;
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_05.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE1_05.gif" NOSAVE BORDER=2 height=100 width=100></a>Finally,
+in order to create a middle ground between your SmartSkin's two keyframes,
+set the Z-axis to 90, and manipulate the eyelid so that the eye is exactly
+half open. It is often necessary to go back and forth between the 179 and
+90 keyframes to make further adjustments to the eyelid, so that it opens
+and closes smoothly.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p>> Fo<font color="#FF8080">r my <a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Dib_PPM(fs).html" target="_top">Dib</a>
+mod</font>el, I used a different method for the eyelid SmartSkins than
+my other models. In the case of most of my models, the eyes are part of
+the model's skin, and the eyelid moves to cover and uncover it. I find
+it easiest to initially model the eyelids in the closed position, because
+this position needs to be modelled more accurately than the open position.
+(When closed, the eyelid needs to be the right size and shape to cover
+the eyes completely, and be only as big as it needs to be. When open, the
+eyelid will be hidden inside the head, and doesn't have to be as accurate
+as when it's closed.) However, in the case of the Dib model, I initially
+modelled the eyes in the open position. Dib has no eyelids, but instead,
+the eye itself is a separate part of the face which changes shape based
+on how open or closed it is. Each eye also includes a 6 patch segment that
+shows the eye in its fully closed position, and this segment is buried
+within the head until needed.
+<br>&nbsp;
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_01.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_01.gif" NOSAVE BORDER=2 height=100 width=100></a>Because
+the default position of Dib's eyes is open, I started with a Z-axis setting
+of 179. Like my other models, I created the keyframe by selecting the control
+points of the eye, then pressing up once, then down once.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_02.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_02.gif" NOSAVE BORDER=2 height=100 width=100></a>At
+the 90 degree mark, I pulled the top part of the eye down, close to the
+middle of the eye.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_03.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_03.gif" NOSAVE BORDER=2 height=100 width=100></a>At
+the 1 degree mark, I pulled the bottom part of the eye up, close to the
+middle of the eye. This gives Dib a squinting look, and the eye is almost
+closed. I also made a keyframe of the closed eye segment on this frame,
+still buried in the head.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_04.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/EE2_04.gif" NOSAVE BORDER=2 height=100 width=100></a>At
+the 0 degree mark, I buried the eyeball within the head, and brought out
+the closed eye segment.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Channel_Lin.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Channel_Lin.gif" NOSAVE BORDER=2 height=100 width=100></a>After
+the keyframes of the SmartSkin are completed, I straightened all of its
+curves in order to eliminate any awkward in-between frame activity. I did
+this by making sure no control points were selected, and then I went into
+Edit Channels&nbsp;<img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Edit_Channels.gif" NOSAVE height=24 width=24>.
+I selected all of the control points in the Channels window, and in the
+Group window, I clicked on the Linear option button.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/JRascot_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-title.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=80 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Quake2_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-Quake2.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=50 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Tutorial_Page(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/Quake2-Tutorial.gif" HSPACE=1 VSPACE=1 NOSAVE BORDER=1 height=25 width=100></a><font face="Nosfer"><font color="#FFFFFF">
+Mesh &amp; Bones</font></font></center>
+
+</body>
+</html>

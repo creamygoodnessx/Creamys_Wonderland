@@ -1,0 +1,176 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.8 [en] (Win98; U) [Netscape]">
+   <title>Jatoten Rascot's Quake2 modeling tutorial</title>
+</head>
+<body text="#FF8080" bgcolor="#000000" link="#33FF33" vlink="#660000" alink="#FFFF00">
+
+<center><IFRAME SRC="http://ads.gamespy.com/hserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NORESIZE SCROLLING=NO HSPACE=0 VSPACE=0 FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0 WIDTH=468 HEIGHT=60><script SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"></script>
+<noscript><a href="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique"><img SRC="http://ads.gamespy.com/jserver/SITE=PQ/TIER=3/GENRE=ACTION/AREA=NONE/AAMSZ=IAB_FULL_BANNER?unique" NOSAVE height=40 width=40></a></noscript></IFRAME>
+<p>
+<hr WIDTH="100%">
+<p><font color="#00FF80"><font size=+2>My Quake2 Modeling Tutorial:</font></font>
+<br><u><font color="#00FF80"><font size=+2>Step 1: Mesh and Bones</font></font></u></center>
+
+<p>> The first thing you need to do is build your mesh in Animation: Master.
+I would assume you're at least proficient in the program, but I will give
+you a few tips to help you along...
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>BASIC TIPS</b></center>
+
+<p>> As any A:M user knows, a patch can consist of three or four connected
+splines. However, a Quake2 model can only consist of three sided polygons.
+Whenever an A:M model is converted into a polygon based one, it's patch
+count will translate into a higher number of polygons. Since a four-sided
+patch will be split into two polygons, the more four sided patches your
+model has, the greater the increase of patches to polys. If all of the
+patches in your model are four sided ones (which is usually not the case),
+your patch count will simply be doubled into polygons.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p>> Whenever modeling a mesh that will eventually be converted into a
+Quake2 model, (or any other format that uses only peeked splines), it's
+generally a good idea to build it with peeked splines. Sometimes, it's
+useful to use a curved spline, especially when tracing a line from a rotoscope.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><b>ROTOSCOPES</b></center>
+
+<p>> Whenever you build a complex model, it's a good idea to apply rotoscopes
+as references to whatever you're attempting to model. If you're modelling
+a commercial cartoon character, the best rotoscopes will usually be the
+character's official turnaround model sheet. Such an image can be found
+on the Internet, or from the official artwork book of whatever show or
+movie the character is from (The Making of...). If you can't find any such
+official model sheet, you can improvise by capturing screenshots of the
+character, and use those as your rotoscope. (Of course, you need access
+to a video adapter card or a TV tuner to take screenshots.) This method
+can be tricky, because it's not always easy to tell if an angle is exactly
+the front, profile, or whatever angle you're trying to capture. Even if
+the character is facing the right direction, a slight tilt can throw you
+off when used as a rotoscope. So take several shots of each desired angle,
+taking your best guess as to what the exact front view, profile, and back
+view should look like. As a guide, you can use a turnaround model sheet
+of another character to choose the best screenshots. When applying the
+rotoscopes, make sure all the angles are consistant with each other. (The
+nose on one rotoscope has to be consistent with the nose on the others,
+and so must every other part of the character.)
+<p>> The ideal rotoscopes you can use for modelling a character in 3D are
+full body shots of the exact front, side, back, angles. Sometimes, it may
+be helpful to use a top view of the character, but such an angle is usually
+not included in an offical model sheet, and is by far the most difficult
+find a screenshot of. It's not always possible to find a screenshot of
+turnaround model sheet quality (with the character standing upright, with
+his/her hands to the side, with both legs straight, shot at the exact angle
+desired, and with none of the body cropped out of the shot), but there's
+a way to get around this issue. Here's what I do whan I run into this problem.
+I take screenshots of the head, torso, and legs, and apply them as separate
+rotoscopes. First, I apply the head screenshots as rotoscopes to their
+appropriate angles, then build the head portion of the model. Next, I delete
+the head rotoscopes, then apply those of the torso, then build the model's
+torso. Finally, I follow suit with the legs.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>MISSING PATCHES</b></center>
+
+<p>> If there is a hole where there should logically be a patch, delete
+a spline of the missing patch. Use the Add Lock feature to create separate
+a spline with four control points. Attach the second control point of this
+line to a CP of the spline you deleted, and the third to the other deleted
+CP. This should cause the patch to appear properly. You can now delete
+the first and fourth CP of your new spline. I have Strykerwolf at Polycount
+to thank for this method.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_1.gif" NOSAVE BORDER=2 height=100 width=100></a>Sometimes,
+there will be a seemingly valid patch that just doesn't exist.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_2.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+one of the splines of the uncooperative non-patch.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_3.gif" NOSAVE BORDER=2 height=100 width=100></a>Create
+a new spline with four control points.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_4.gif" NOSAVE BORDER=2 height=100 width=100></a>Attach
+the second CP of the spline to one of the CPs of the spline you previously
+deleted...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_5.gif" NOSAVE BORDER=2 height=100 width=100></a>...and
+the third CP to the other deleted CP. This should cause the patch to work
+properly.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/Tut1_6.gif" NOSAVE BORDER=2 height=100 width=100></a>Delete
+the now unnecessary first and fourth control points of the temporary spline.
+<center>
+<p>
+<hr WIDTH="100%">
+<p><b>CREASE REDUCTION</b></center>
+
+<p>> A major ass itch that 3D animators must face is abnormal creasing
+in their models while animating them. Fortunately, Animation: Master 99
+and all versions following it have a feature called SmartSkin. SmartSkin
+allows you to assign control points to particular locations depending on
+the rotation of certain bones. Here's how it works...
+<p>> During the building of your mesh, make sure you build its joints a
+certain way in order for it&nbsp; to take advantage of SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow.gif" NOSAVE height=100 width=100></a>Your
+model's elbows should each consist of two unconnected rings of splines...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Knee.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Knee.gif" NOSAVE height=100 width=100></a>...while
+the knees should consist of two rings connected at the back of the knees.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow135.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/NoSS_Elbow135.gif" NOSAVE height=100 width=100></a>Here
+is an elbow joint bending at 90 degrees and 135 degrees without the assistance
+of A:M's SmartSkin.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow135.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/SS_Elbow135.gif" NOSAVE height=100 width=100></a>This
+is the same elbow bending at the same angles above, but with the aid of
+SmartSkin.
+<center>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p><font color="#FF8080">> After applying a skeleton to your model, apply
+a SmartSkin to one of your model's bones. Select a bone, right-click it,
+and select 'New SmartSkin'. After selecting an axis in which to apply the
+SmartSkin on, a new window will open, in which your selected bone will
+be bent at a 90 degree angle. In this window, you can manipulate control
+points to suit the angle of the bone with a minimum amount of creasing.
+After the SmartSkin is applied, it will take effect in all of the model's
+animations. Here is a list of the bones and angles I use the SmartSkin
+feature on...</font>
+<center>
+<p><font color="#FF8080">CHEST</font>
+<br><font color="#FF8080">X - -90, 90, 135</font>
+<p><font color="#FF8080">BICEPS</font>
+<br><font color="#FF8080">X - 90</font>
+<p><font color="#FF8080">FOREARMS</font>
+<br><font color="#FF8080">X - 90, 135</font>
+<br><font color="#FF8080">Y - -90, 90</font>
+<p><font color="#FF8080">HANDS</font>
+<br><font color="#FF8080">X - -90, 90</font>
+<br><font color="#FF8080">Y - -90, 90</font>
+<br><font color="#FF8080">Z - -180, -90, 90, 180</font>
+<p><font color="#FF8080">CALVES</font>
+<br><font color="#FF8080">X - 90</font>
+<p><img SRC="http://www.planetquake.com/polycount/cottages/iwow/rule02.gif" NOSAVE height=22 width=468></center>
+
+<p>> In order to make your model's wrist twist properly while your model's
+hands twist, it's a good idea to rotate each ring of splines down the arm
+all the way to the shoulder. (This belongs to the Z-Axis of the hands.)
+This should be done gradually up the arm. It may take you about an hour
+to find the right rotations for each ring of the arm, but patience can
+pay off big time.
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist90.gif" NOSAVE height=100 width=100></a>First,
+find the right rotations for the 90 degree mark of the wrist's Z-Axis...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist180.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist180.gif" NOSAVE height=100 width=100></a>...and
+then for 180 degrees...
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-90.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-90.gif" NOSAVE height=100 width=100></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-180.gif"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Model_Tut/WristTwist-180.gif" NOSAVE height=100 width=100></a>...and
+finally for -90, then -180 degrees respectively.
+<p>
+<hr WIDTH="100%">
+<center>
+<p><a href="http://www.planetquake.com/polycount/cottages/iwow/JRascot_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-title.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=80 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Quake2_Intro(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/lfm-Quake2.gif" HSPACE=2 VSPACE=2 NOSAVE BORDER=1 height=50 width=120></a><a href="http://www.planetquake.com/polycount/cottages/iwow/Quake2/Tutorial_Page(fs).html" target="_top"><img SRC="http://www.planetquake.com/polycount/cottages/iwow/LFM/Quake2-Tutorial.gif" HSPACE=1 VSPACE=1 NOSAVE BORDER=1 height=25 width=100></a><font face="Nosfer"><font color="#FFFFFF">Mesh
+&amp; Bones</font></font></center>
+
+</body>
+</html>
